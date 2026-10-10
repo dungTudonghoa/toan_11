@@ -1,0 +1,265 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[top=16mm,bottom=18mm,left=16mm,right=16mm,headheight=0pt,headsep=0mm,footskip=10mm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T5]{fontenc}
+  \usepackage{mathptmx}
+\else
+  \usepackage{fontspec}
+  \usepackage{mathptmx}
+  \IfFontExistsTF{Times New Roman}
+    {\setmainfont{Times New Roman}}
+    {\setmainfont{Tinos}}
+\fi
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{array,tabularx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\definecolor{questionpurple}{RGB}{137,38,143}
+\definecolor{answerblue}{RGB}{35,45,140}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1.12}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\small Chuyên đề I -- Toán 11}
+\fancyfoot[R]{\small Trang \thepage/\pageref{LastPage} -- Đề test số 03}
+\renewcommand{\footrulewidth}{.4pt}
+
+\newlist{questions}{enumerate}{1}
+\setlist[questions]{label=\textcolor{questionpurple}{\bfseries Câu \arabic*.},leftmargin=0pt,itemindent=16mm,labelwidth=14mm,labelsep=2mm,align=left,itemsep=7pt,topsep=7pt,parsep=0pt}
+\newcommand{\answerlabel}[1]{\tikz[baseline=(choice.base)]\node[draw=black!65,text=answerblue,circle,inner sep=0pt,minimum size=4.8mm,line width=.4pt,font=\normalsize] (choice) {#1};}
+\newcommand{\fourchoices}[4]{\par\begingroup\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.35}\begin{tabularx}{\linewidth}{@{}*{4}{>{\raggedright\arraybackslash}X}@{}}\answerlabel{A}~#1 & \answerlabel{B}~#2 & \answerlabel{C}~#3 & \answerlabel{D}~#4\end{tabularx}\endgroup}
+\newcommand{\twochoices}[4]{\par\begingroup\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.45}\begin{tabularx}{\linewidth}{@{}*{2}{>{\raggedright\arraybackslash}X}@{}}\answerlabel{A}~#1 & \answerlabel{B}~#2 \\ \answerlabel{C}~#3 & \answerlabel{D}~#4\end{tabularx}\endgroup}
+\newcommand{\sd}{\mathop{\text{sđ}}\nolimits}
+
+
+\newcommand{\longchoices}[4]{\par\begingroup
+  \setlength{\parskip}{0pt}%
+  \noindent\answerlabel{A}~#1\par
+  \noindent\answerlabel{B}~#2\par
+  \noindent\answerlabel{C}~#3\par
+  \noindent\answerlabel{D}~#4\par
+  \endgroup}
+\newcommand{\tdm}[1]{\textcolor{answerblue}{\textbf{[TDM#1]}}}
+\newcommand{\rz}{\mathbb{Z}}
+\newcommand{\kk}{,\ k\in\rz}
+\newcommand{\itv}[2]{\left(#1\,;\,#2\right)}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{.35\textwidth}
+  \centering
+  {\bfseries CHUYÊN ĐỀ I -- TOÁN -- 11\par}
+  \vspace{2pt}\rule{.72\linewidth}{.4pt}\par
+  \vspace{3pt} CHƯƠNG I\par
+  \vspace{4pt} {\itshape ĐỀ TEST SỐ 03\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{.62\textwidth}
+  \centering
+  {\bfseries HÀM SỐ LƯỢNG GIÁC\par
+  VÀ PHƯƠNG TRÌNH LƯỢNG GIÁC\par}
+  \vspace{5pt}
+  {\small\bfseries BÀI 3. HÀM SỐ LƯỢNG GIÁC\par}
+\end{minipage}
+
+\vspace{7mm}
+\noindent
+\begin{minipage}[t]{.72\textwidth}
+  \textbf{Họ, tên thí sinh:}\dotfill\par
+  \vspace{3pt}\textbf{Số báo danh:}\dotfill
+\end{minipage}\hfill
+\begin{minipage}[t]{.25\textwidth}
+  \raggedleft\setlength{\fboxsep}{4pt}
+  \fbox{\textbf{Đề test số: 03}}
+\end{minipage}
+
+\vspace{5mm}
+\textbf{PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn.}
+Thí sinh trả lời từ câu 1 đến câu 26. Mỗi câu hỏi thí sinh chỉ chọn một phương án.
+
+\vspace{3mm}
+\textbf{A. CÁC BÀI TẬP NỀN TẢNG VÀ VẬN DỤNG TRỌNG ĐIỂM (21 CÂU).}
+\begin{questions}
+  \item \tdm{21} Trong các hàm số sau, hàm số nào là hàm số chẵn?
+  \fourchoices{$y=\cos x$.}{$y=\sin x$.}{$y=\tan x$.}{$y=\cot x$.}
+
+  \item \tdm{21} Trong các hàm số sau, hàm số nào là hàm số lẻ?
+  \fourchoices{$y=\cos 2x$.}{$y=2\sin x-1$.}
+    {$y=\tan\left(x+\dfrac{\pi}{3}\right)$.}{$y=3\sin x$.}
+
+  \item \tdm{21} Hàm số $f(x)=\cos x$ là
+  \twochoices
+    {hàm số tuần hoàn với chu kì $T=\pi$.}
+    {hàm số không tuần hoàn.}
+    {hàm số tuần hoàn với chu kì $T=2\pi$.}
+    {hàm số tuần hoàn không có chu kì.}
+
+  \item \tdm{21} Cho hàm số $f(x)=\cos(ax+b)$, với hệ số thực dương $a$. Mệnh đề đúng là:
+  \longchoices
+    {Hàm số $f(x)$ là hàm số không tuần hoàn.}
+    {Hàm số $f(x)$ là hàm số tuần hoàn với chu kì $T=2a\pi$.}
+    {Hàm số $f(x)$ là hàm số tuần hoàn với chu kì $T=\dfrac{2\pi}{a}$.}
+    {Hàm số $f(x)$ là hàm số tuần hoàn với chu kì $T=a\pi$.}
+
+  \item \tdm{21} Cho hàm số $f(x)=\sin(ax+b)$, với hệ số thực dương $a$. Mệnh đề đúng là:
+  \longchoices
+    {Hàm số $f(x)$ là hàm số không tuần hoàn.}
+    {Hàm số $f(x)$ là hàm số tuần hoàn với chu kì $T=2a\pi$.}
+    {Hàm số $f(x)$ là hàm số tuần hoàn với chu kì $T=\dfrac{2\pi}{a}$.}
+    {Hàm số $f(x)$ là hàm số tuần hoàn với chu kì $T=a\pi$.}
+
+  \item \tdm{21} Cho hàm số $f(x)=\tan(ax+b)$, với hệ số thực dương $a$. Mệnh đề đúng là:
+  \longchoices
+    {Hàm số $f(x)$ là hàm số không tuần hoàn.}
+    {Hàm số $f(x)$ là hàm số tuần hoàn với chu kì $T=\dfrac{\pi}{a}$.}
+    {Hàm số $f(x)$ là hàm số tuần hoàn với chu kì $T=\dfrac{2\pi}{a}$.}
+    {Hàm số $f(x)$ là hàm số tuần hoàn với chu kì $T=\pi$.}
+
+  \item \tdm{21} Cho hàm số $f(x)=\cot(ax+b)$, với hệ số thực dương $a$. Hàm số $f(x)$ là
+  \twochoices
+    {hàm số không tuần hoàn.}
+    {hàm số tuần hoàn với chu kì $T=\dfrac{\pi}{a}$.}
+    {hàm số tuần hoàn với chu kì $T=\dfrac{2\pi}{a}$.}
+    {hàm số tuần hoàn với chu kì $T=\pi$.}
+\end{questions}
+\newpage
+\begin{center}
+  {\small\bfseries\itshape CHUYÊN ĐỀ I -- TOÁN -- 11 -- HÀM SỐ LƯỢNG GIÁC VÀ PHƯƠNG TRÌNH LƯỢNG GIÁC}
+\end{center}
+\begin{questions}[resume,topsep=3pt]
+  \item \tdm{21} Hàm số $f(x)=\sin(2x+3)$ là
+  \twochoices
+    {hàm số tuần hoàn với chu kì $T=\pi$.}
+    {hàm số không tuần hoàn.}
+    {hàm số tuần hoàn với chu kì $T=2\pi$.}
+    {hàm số tuần hoàn với chu kì $T=4\pi$.}
+
+  \item \tdm{31} Hàm số $f(x)=\sin^2 x$ là hàm tuần hoàn với chu kì bằng
+  \fourchoices{$2\pi$.}{$4\pi^2$.}{$4\pi$.}{$\pi$.}
+
+  \item \tdm{32} Cho hàm số $y=f(x)$ là một hàm số tuần hoàn với chu kì bằng $4$
+  và có tập xác định trên toàn $\mathbb{R}$. Biết rằng
+  $f(1)+f(12)=5$ và $2f(0)-f(5)=7$. Giá trị của $f(9)$ bằng
+  \fourchoices{$4$.}{$1$.}{$2$.}{$6$.}
+
+  \item \tdm{21} Hàm số $f(x)=3\sin x$ nghịch biến trên các khoảng
+  \twochoices
+    {$\itv{-\dfrac{\pi}{2}+2k\pi}{\dfrac{\pi}{2}+2k\pi}\kk$.}
+    {$\itv{2k\pi}{\pi+2k\pi}\kk$.}
+    {$\itv{\dfrac{\pi}{2}+2k\pi}{\dfrac{3\pi}{2}+2k\pi}\kk$.}
+    {$\itv{-\pi+2k\pi}{2k\pi}\kk$.}
+
+  \item \tdm{21} Hàm số $f(x)=\cos x$ đồng biến trên các khoảng
+  \twochoices
+    {$\itv{-\pi+2k\pi}{2k\pi}\kk$.}
+    {$\itv{2k\pi}{\pi+2k\pi}\kk$.}
+    {$\itv{-\dfrac{\pi}{2}+2k\pi}{\dfrac{\pi}{2}+2k\pi}\kk$.}
+    {$\itv{\dfrac{\pi}{2}+2k\pi}{\dfrac{3\pi}{2}+2k\pi}\kk$.}
+
+  \item \tdm{21} Hàm số $f(x)=\tan x$ có tập xác định là
+  \twochoices
+    {$\mathbb{R}\setminus\left\{\dfrac{\pi}{2}+k\pi\mid k\in\rz\right\}$.}
+    {$\mathbb{R}\setminus\left\{\pi+k\pi\mid k\in\rz\right\}$.}
+    {$\mathbb{R}$.}
+    {$\mathbb{R}\setminus\left\{\dfrac{k\pi}{2}\mid k\in\rz\right\}$.}
+
+  \item \tdm{31} Hàm số
+    $f(x)=\sqrt{3}\sin\left(3x+\dfrac{\pi}{4}\right)$ đồng biến trên các khoảng
+  \twochoices
+    {$\itv{\dfrac{\pi}{4}+\dfrac{2k\pi}{3}}{\dfrac{\pi}{2}+\dfrac{2k\pi}{3}}\kk$.}
+    {$\itv{-\dfrac{\pi}{4}+k\pi}{\dfrac{\pi}{3}+k\pi}\kk$.}
+    {$\itv{-\dfrac{\pi}{3}+\dfrac{k\pi}{2}}{\dfrac{\pi}{3}+\dfrac{k\pi}{2}}\kk$.}
+    {$\itv{-\dfrac{\pi}{4}+\dfrac{2k\pi}{3}}{\dfrac{\pi}{12}+\dfrac{2k\pi}{3}}\kk$.}
+
+  \item \tdm{31} Hàm số
+    $f(x)=2\cos\left(2x-\dfrac{\pi}{3}\right)$ nghịch biến trên các khoảng
+  \twochoices
+    {$\itv{\dfrac{\pi}{3}+2k\pi}{\dfrac{4\pi}{3}+2k\pi}\kk$.}
+    {$\itv{\dfrac{\pi}{6}+k\pi}{\dfrac{2\pi}{3}+k\pi}\kk$.}
+    {$\itv{-\dfrac{\pi}{6}+2k\pi}{\dfrac{\pi}{6}+2k\pi}\kk$.}
+    {$\itv{\dfrac{\pi}{6}+k\pi}{\dfrac{\pi}{4}+k\pi}\kk$.}
+
+  \item \tdm{31} Hàm số $f(x)=3\tan\left(x-\dfrac{\pi}{3}\right)$ đồng biến trên các khoảng
+  \twochoices
+    {$\itv{-\dfrac{\pi}{2}+k\pi}{\dfrac{\pi}{2}+k\pi}\kk$.}
+    {$\itv{-\dfrac{\pi}{6}+k\pi}{\dfrac{5\pi}{6}+k\pi}\kk$.}
+    {$\itv{\dfrac{\pi}{6}+k\pi}{-\dfrac{5\pi}{6}+k\pi}\kk$.}
+    {$\itv{k\pi}{\pi+k\pi}\kk$.}
+\end{questions}
+\newpage
+\begin{center}
+  {\small\bfseries\itshape CHUYÊN ĐỀ I -- TOÁN -- 11 -- HÀM SỐ LƯỢNG GIÁC VÀ PHƯƠNG TRÌNH LƯỢNG GIÁC}
+\end{center}
+\begin{questions}[resume,topsep=3pt]
+  \item \tdm{31} Hàm số $f(x)=\cot\left(2x-\dfrac{\pi}{4}\right)$ nghịch biến trên các khoảng
+  \twochoices
+    {$\itv{\dfrac{k\pi}{2}}{\pi+\dfrac{k\pi}{2}}\kk$.}
+    {$\itv{-\dfrac{\pi}{3}+k\pi}{\dfrac{2\pi}{3}+k\pi}\kk$.}
+    {$\itv{\dfrac{\pi}{12}+k\pi}{\dfrac{5\pi}{12}+k\pi}\kk$.}
+    {$\itv{\dfrac{\pi}{8}+\dfrac{k\pi}{2}}{\dfrac{5\pi}{8}+\dfrac{k\pi}{2}}\kk$.}
+
+  \item \tdm{32} Hàm số $f(x)=-2\cos x+1$ đồng biến trên các khoảng
+  \twochoices
+    {$\itv{2k\pi}{\pi+2k\pi}\kk$.}
+    {$\itv{-\pi+2k\pi}{2k\pi}\kk$.}
+    {$\itv{-\dfrac{\pi}{2}+2k\pi}{\dfrac{\pi}{2}+2k\pi}\kk$.}
+    {$\itv{k\pi}{\dfrac{\pi}{2}+k\pi}\kk$.}
+
+  \item \tdm{32} Hàm số $f(x)=-2\sin^2 x$ đồng biến trên các khoảng
+  \twochoices
+    {$\itv{-\dfrac{\pi}{2}+k\pi}{k\pi}\kk$.}
+    {$\itv{-\pi+k\pi}{k\pi}\kk$.}
+    {$\itv{-\dfrac{\pi}{2}+k\pi}{\dfrac{\pi}{2}+k\pi}\kk$.}
+    {$\itv{k\pi}{\dfrac{\pi}{3}+k\pi}\kk$.}
+
+  \item \tdm{32} Hỏi hàm số nào dưới đây là hàm số lẻ?
+  \fourchoices{$y=\cos x+\sin x$.}{$y=\cos x+\tan x$.}
+    {$y=\sin x\cos x$.}{$y=\sin^2 x$.}
+
+  \item \tdm{32} Hỏi hàm số nào dưới đây là hàm số chẵn?
+  \fourchoices{$y=|\cot x|$.}{$y=\tan x+\sin x$.}
+    {$y=\sin x\cos x$.}{$y=\tan x-\cot x$.}
+\end{questions}
+
+\vspace{4mm}
+\textbf{C. CÁC CÂU RÈN LUYỆN THÊM 9.2+ CÓ LỜI GIẢI CHI TIẾT (5 CÂU).}
+\begin{questions}[resume]
+  \item \tdm{32} Cho hàm số $y=f(x)$ là một hàm số tuần hoàn với chu kì $T$.
+  Xét hàm số $y=g(x)=a\,f(x)+b$, với hệ số thực $a\neq 0$.
+  Hàm số $g(x)$ là hàm số tuần hoàn với chu kì bằng
+  \fourchoices{$T$.}{$aT$.}{$\dfrac{T}{a}$.}{$aT+b$.}
+
+  \item \tdm{32} Hàm số $f(x)=\sin 8x-2\cos 12x$ là hàm tuần hoàn với chu kì bằng
+  \fourchoices{$\dfrac{\pi}{6}$.}{$\dfrac{\pi}{4}$.}{$\dfrac{\pi}{2}$.}{$\pi$.}
+
+  \item \tdm{32} Hàm số $f(x)=|\cos x|$ là hàm tuần hoàn với chu kì bằng
+  \fourchoices{$2\pi$.}{$4\pi$.}{$3\pi$.}{$\pi$.}
+
+  \item \tdm{22} Hàm số nào dưới đây là hàm tuần hoàn không có chu kì?
+  \fourchoices{$f(x)=\sin x$.}{$f(x)=\cos x$.}
+    {$f(x)=\tan x$.}{$f(x)=2$.}
+
+  \item \tdm{33} Hàm số $f(x)=\cos(x^2+1)$ là
+  \twochoices
+    {hàm số tuần hoàn không có chu kì.}
+    {hàm số tuần hoàn với chu kì $T=2\pi$.}
+    {hàm số không tuần hoàn.}
+    {hàm số tuần hoàn với chu kì $T=\sqrt{2\pi}$.}
+\end{questions}
+
+\vspace{5mm}
+\begin{center}
+  \textbf{---------- HẾT ----------}\\[2mm]
+  {\footnotesize Nguồn câu hỏi: Đề tự luyện TDM11X14 -- Các hàm lượng giác cơ bản.\\
+    Biên soạn: Nguyễn Đăng Ái -- Tư duy mở.}
+\end{center}
+\end{document}
