@@ -132,12 +132,27 @@ $y=\alpha\tan(ax+b)+\beta$, $y=\alpha\cot(ax+b)+\beta$ & $\dfrac{\pi}{|a|}$\\\hl
 \end{itemize}
 \textbf{Sự biến thiên trên một chu kì $[-\pi;\pi]$:}
 \begin{center}
-\renewcommand{\arraystretch}{1.55}
-\begin{tabular}{|c|c|c|c|c|c|}\hline
-$x$ & $-\pi$ & $-\frac{\pi}{2}$ & $0$ & $\frac{\pi}{2}$ & $\pi$\\\hline
-$\sin x$ & $0$ & $-1$ & $0$ & $1$ & $0$\\\hline
-Chiều biến thiên & \multicolumn{2}{c|}{$\searrow$} & $\nearrow$ & $\nearrow$ & $\searrow$\\\hline
-\end{tabular}
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth,font=\small]
+  \draw[line width=.6pt] (0,0) rectangle (12.4,3.6);
+  \draw[line width=.6pt] (1.4,0)--(1.4,3.6);
+  \draw[line width=.6pt] (0,2.9)--(12.4,2.9);
+  \node at (.7,3.25) {$x$};
+  \node at (.7,1.45) {$\sin x$};
+  \node at (2.2,3.25) {$-\pi$};
+  \node at (4.5,3.25) {$-\dfrac{\pi}{2}$};
+  \node at (6.8,3.25) {$0$};
+  \node at (9.1,3.25) {$\dfrac{\pi}{2}$};
+  \node at (11.4,3.25) {$\pi$};
+  \draw[->,thick] (2.58,1.32)--(4.12,0.58);
+  \draw[->,thick] (4.88,0.58)--(6.42,1.32);
+  \draw[->,thick] (7.18,1.58)--(8.72,2.32);
+  \draw[->,thick] (9.48,2.32)--(11.02,1.58);
+  \node[fill=white,inner sep=2pt] at (2.2,1.45) {$0$};
+  \node[fill=white,inner sep=2pt] at (4.5,0.45) {$-1$};
+  \node[fill=white,inner sep=2pt] at (6.8,1.45) {$0$};
+  \node[fill=white,inner sep=2pt] at (9.1,2.45) {$1$};
+  \node[fill=white,inner sep=2pt] at (11.4,1.45) {$0$};
+\end{tikzpicture}
 \end{center}
 \begin{center}
 \begin{tikzpicture}[x=1.3cm,y=1.2cm,>=Stealth]
@@ -189,12 +204,27 @@ $\left(\frac{\pi}{2}+2k\pi\,;\,\frac{3\pi}{2}+2k\pi\right)$, $k\in\mathbb Z$.}
 \end{itemize}
 \textbf{Sự biến thiên trên một chu kì $[-\pi;\pi]$:}
 \begin{center}
-\renewcommand{\arraystretch}{1.55}
-\begin{tabular}{|c|c|c|c|c|c|}\hline
-$x$ & $-\pi$ & $-\frac{\pi}{2}$ & $0$ & $\frac{\pi}{2}$ & $\pi$\\\hline
-$\cos x$ & $-1$ & $0$ & $1$ & $0$ & $-1$\\\hline
-Chiều biến thiên & \multicolumn{2}{c|}{$\nearrow$} & $\nearrow$ & $\searrow$ & $\searrow$\\\hline
-\end{tabular}
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth,font=\small]
+  \draw[line width=.6pt] (0,0) rectangle (12.4,3.6);
+  \draw[line width=.6pt] (1.4,0)--(1.4,3.6);
+  \draw[line width=.6pt] (0,2.9)--(12.4,2.9);
+  \node at (.7,3.25) {$x$};
+  \node at (.7,1.45) {$\cos x$};
+  \node at (2.2,3.25) {$-\pi$};
+  \node at (4.5,3.25) {$-\dfrac{\pi}{2}$};
+  \node at (6.8,3.25) {$0$};
+  \node at (9.1,3.25) {$\dfrac{\pi}{2}$};
+  \node at (11.4,3.25) {$\pi$};
+  \draw[->,thick] (2.58,0.58)--(4.12,1.32);
+  \draw[->,thick] (4.88,1.58)--(6.42,2.32);
+  \draw[->,thick] (7.18,2.32)--(8.72,1.58);
+  \draw[->,thick] (9.48,1.32)--(11.02,0.58);
+  \node[fill=white,inner sep=2pt] at (2.2,0.45) {$-1$};
+  \node[fill=white,inner sep=2pt] at (4.5,1.45) {$0$};
+  \node[fill=white,inner sep=2pt] at (6.8,2.45) {$1$};
+  \node[fill=white,inner sep=2pt] at (9.1,1.45) {$0$};
+  \node[fill=white,inner sep=2pt] at (11.4,0.45) {$-1$};
+\end{tikzpicture}
 \end{center}
 \begin{center}
 \begin{tikzpicture}[x=1.3cm,y=1.2cm,>=Stealth]
@@ -248,13 +278,23 @@ $\tan x=\frac{\sin x}{\cos x}$.}
 \end{itemize}
 \textbf{Bảng biến thiên trong một chu kì:}
 \begin{center}
-\renewcommand{\arraystretch}{1.6}
-\begin{tabular}{|c|c|c|c|}\hline
-$x$ & $-\frac{\pi}{2}$ & $0$ & $\frac{\pi}{2}$\\\hline
-$\tan x$ & $-\infty$ & $0$ & $+\infty$\\\hline
-Biến thiên & \multicolumn{3}{c|}{$-\infty\quad\nearrow\quad 0\quad\nearrow\quad +\infty$}\\\hline
-\end{tabular}
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth,font=\small]
+  \draw[line width=.6pt] (0,0) rectangle (12.4,3.6);
+  \draw[line width=.6pt] (1.4,0)--(1.4,3.6);
+  \draw[line width=.6pt] (0,2.9)--(12.4,2.9);
+  \node at (.7,3.25) {$x$};
+  \node at (.7,1.45) {$\tan x$};
+  \node at (2.4,3.25) {$-\dfrac{\pi}{2}$};
+  \node at (6.8,3.25) {$0$};
+  \node at (11.2,3.25) {$\dfrac{\pi}{2}$};
+  \draw[->,thick] (2.78,0.58)--(6.42,1.32);
+  \draw[->,thick] (7.18,1.58)--(10.82,2.32);
+  \node[fill=white,inner sep=2pt] at (2.4,0.45) {$-\infty$};
+  \node[fill=white,inner sep=2pt] at (6.8,1.45) {$0$};
+  \node[fill=white,inner sep=2pt] at (11.2,2.45) {$+\infty$};
+\end{tikzpicture}
 \end{center}
+{\small\itshape Các ký hiệu $\pm\infty$ là giới hạn tại $x=\pm\frac{\pi}{2}$, không phải giá trị của hàm số.}
 \begin{center}
 \begin{tikzpicture}[x=1.6cm,y=.72cm,>=Stealth]
  \draw[->] (-1.85,0)--(1.92,0) node[right] {$x$};
@@ -330,13 +370,23 @@ $\cot x=\frac{\cos x}{\sin x}$.}
 \end{itemize}
 \textbf{Bảng biến thiên trong một chu kì:}
 \begin{center}
-\renewcommand{\arraystretch}{1.6}
-\begin{tabular}{|c|c|c|c|}\hline
-$x$ & $0$ & $\frac{\pi}{2}$ & $\pi$\\\hline
-$\cot x$ & $+\infty$ & $0$ & $-\infty$\\\hline
-Biến thiên & \multicolumn{3}{c|}{$+\infty\quad\searrow\quad0\quad\searrow\quad-\infty$}\\\hline
-\end{tabular}
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth,font=\small]
+  \draw[line width=.6pt] (0,0) rectangle (12.4,3.6);
+  \draw[line width=.6pt] (1.4,0)--(1.4,3.6);
+  \draw[line width=.6pt] (0,2.9)--(12.4,2.9);
+  \node at (.7,3.25) {$x$};
+  \node at (.7,1.45) {$\cot x$};
+  \node at (2.4,3.25) {$0$};
+  \node at (6.8,3.25) {$\dfrac{\pi}{2}$};
+  \node at (11.2,3.25) {$\pi$};
+  \draw[->,thick] (2.78,2.32)--(6.42,1.58);
+  \draw[->,thick] (7.18,1.32)--(10.82,0.58);
+  \node[fill=white,inner sep=2pt] at (2.4,2.45) {$+\infty$};
+  \node[fill=white,inner sep=2pt] at (6.8,1.45) {$0$};
+  \node[fill=white,inner sep=2pt] at (11.2,0.45) {$-\infty$};
+\end{tikzpicture}
 \end{center}
+{\small\itshape Các ký hiệu $\pm\infty$ là giới hạn tại hai đầu mút $x=0$ và $x=\pi$, không phải giá trị của hàm số.}
 \begin{center}
 \begin{tikzpicture}[x=1.5cm,y=.72cm,>=Stealth]
  \draw[->] (-.3,0)--(3.45,0) node[right] {$x$};
