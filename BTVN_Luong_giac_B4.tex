@@ -8,7 +8,7 @@
 \else
   \usepackage{fontspec}
   \usepackage{mathptmx}
-  \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{Tinos}}
+  \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\IfFontExistsTF{Tinos}{\setmainfont{Tinos}}{\setmainfont{TeX Gyre Termes}}}
 \fi
 \usepackage{amsmath,amssymb}
 \usepackage{xcolor}
@@ -280,7 +280,7 @@
     {$150$}
     {$301$}
 
-\item {\small\textcolor{answerblue}{[TDM41]}} Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để phương trình $20\cos x=m$ có đúng 3 nghiệm thuộc đoạn $\left[-\dfrac{\pi}{3};\dfrac{6\pi}{3}\right]$?
+\item {\small\textcolor{answerblue}{[TDM41]}} Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để phương trình $20\cos x=m$ có đúng 3 nghiệm thuộc khoảng $\left[-\dfrac{\pi}{3};\dfrac{6\pi}{3}\right]$?
   \fourchoices
     {$20$}
     {$19$}
@@ -294,7 +294,7 @@
     {$55$}
     {$56$}
 
-\item {\small\textcolor{answerblue}{[TDM52]}} Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để phương trình $20\sin\left(3x-\dfrac{\pi}{2}\right)=m$ có đúng 151 nghiệm thuộc đoạn $\left[-\dfrac{\pi}{2};\dfrac{400\pi}{3}\right]$?
+\item {\small\textcolor{answerblue}{[TDM52]}} Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để phương trình $20\sin\left(3x-\dfrac{\pi}{2}\right)=m$ có đúng 151 nghiệm thuộc khoảng $\left[-\dfrac{\pi}{2};\dfrac{400\pi}{3}\right]$?
   \fourchoices
     {$21$}
     {$20$}
