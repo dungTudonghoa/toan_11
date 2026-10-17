@@ -1,0 +1,308 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[top=16mm,bottom=18mm,left=16mm,right=16mm,headheight=0pt,headsep=0mm,footskip=10mm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T5]{fontenc}
+  \usepackage{mathptmx}
+\else
+  \usepackage{fontspec}
+  \usepackage{mathptmx}
+  \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{Tinos}}
+\fi
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{array,tabularx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\definecolor{questionpurple}{RGB}{137,38,143}
+\definecolor{answerblue}{RGB}{35,45,140}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1.12}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\small Chuyên đề I -- Toán 11}
+\fancyfoot[R]{\small Trang \thepage/\pageref{LastPage} -- Đề test số 04}
+\renewcommand{\footrulewidth}{.4pt}
+
+\newlist{questions}{enumerate}{1}
+\setlist[questions]{label=\textcolor{questionpurple}{\bfseries Câu \arabic*.},leftmargin=0pt,itemindent=16mm,labelwidth=14mm,labelsep=2mm,align=left,itemsep=5pt,topsep=4pt,parsep=0pt}
+\newcommand{\answerlabel}[1]{\tikz[baseline=(choice.base)]\node[draw=black!65,text=answerblue,circle,inner sep=0pt,minimum size=4.8mm,line width=.4pt,font=\normalsize] (choice) {#1};}
+\newcommand{\fourchoices}[4]{\par\begingroup\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.35}\begin{tabularx}{\linewidth}{@{}*{4}{>{\raggedright\arraybackslash}X}@{}}\answerlabel{A}~#1 & \answerlabel{B}~#2 & \answerlabel{C}~#3 & \answerlabel{D}~#4\end{tabularx}\endgroup}
+\newcommand{\twochoices}[4]{\par\begingroup\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.5}\begin{tabularx}{\linewidth}{@{}*{2}{>{\raggedright\arraybackslash}X}@{}}\answerlabel{A}~#1 & \answerlabel{B}~#2 \\ \answerlabel{C}~#3 & \answerlabel{D}~#4\end{tabularx}\endgroup}
+\newcommand{\sd}{\mathop{\text{sđ}}\nolimits}
+
+
+% Giu mau mau sac va nhan lua chon cua B1; co gon de in trac nghiem.
+\newcommand{\allk}{,\ k\in\mathbb{Z}}
+\newcommand{\solpair}[2]{\left[\begin{aligned}#1\\[1pt]#2\end{aligned}\right.}
+\renewcommand{\twochoices}[4]{\par\begingroup\small\setlength{\tabcolsep}{1pt}\renewcommand{\arraystretch}{1.6}\begin{tabularx}{\linewidth}{@{}*{2}{>{\raggedright\arraybackslash}X}@{}}\answerlabel{A}~#1 & \answerlabel{B}~#2 \\ \answerlabel{C}~#3 & \answerlabel{D}~#4\end{tabularx}\endgroup}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{.35\textwidth}
+  \centering
+  {\bfseries CHUYÊN ĐỀ I -- TOÁN -- 11\par}
+  \vspace{2pt}\rule{.72\linewidth}{.4pt}\par\vspace{3pt}
+  CHƯƠNG I\par\vspace{4pt}
+  {\itshape ĐỀ TEST SỐ 04\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{.62\textwidth}
+  \centering
+  {\bfseries HÀM SỐ LƯỢNG GIÁC\par
+  VÀ PHƯƠNG TRÌNH LƯỢNG GIÁC\par}
+  \vspace{5pt}
+  {\small\bfseries BÀI 4. PHƯƠNG TRÌNH\par
+  LƯỢNG GIÁC CƠ BẢN\par}
+\end{minipage}
+
+\vspace{7mm}
+\noindent
+\begin{minipage}[t]{.72\textwidth}
+  \textbf{Họ, tên thí sinh:}\dotfill\par\vspace{3pt}
+  \textbf{Số báo danh:}\dotfill
+\end{minipage}\hfill
+\begin{minipage}[t]{.25\textwidth}
+  \raggedleft\setlength{\fboxsep}{4pt}
+  \fbox{\textbf{Đề test số: 04}}
+\end{minipage}
+
+\vspace{5mm}
+{\footnotesize\itshape Nguồn bài tập: Đề TDM11X15 -- Nguyễn Đăng Ái (Tư duy mở).\par}
+\vspace{3mm}
+\textbf{PHẦN A. Các bài tập nền tảng và vận dụng trọng điểm (26 câu).}
+\begin{questions}
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\sin\left(x-\dfrac{\pi}{3}\right)=1$ là
+  \twochoices
+    {$x=\dfrac{5\pi}{6}+2k\pi,\ k\in\mathbb{Z}$}
+    {$x=\dfrac{5\pi}{6}+k\pi,\ k\in\mathbb{Z}$}
+    {$x=\dfrac{\pi}{2}+2k\pi,\ k\in\mathbb{Z}$}
+    {$x=\dfrac{5\pi}{6}+4k\pi,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\sin\left(2x-\dfrac{\pi}{6}\right)=-\dfrac12$ là
+  \twochoices
+    {$x=\dfrac{5\pi}{6}+2k\pi,\ k\in\mathbb{Z}$}
+    {$\solpair{x=k\pi,\ k\in\mathbb{Z}}{x=\dfrac{2\pi}{3}+k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=2k\pi,\ k\in\mathbb{Z}}{x=\dfrac{2\pi}{3}+2k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=-\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb{Z}}{x=\dfrac{7\pi}{6}+2k\pi,\ k\in\mathbb{Z}}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\dfrac12\sin x=-1$ là
+  \twochoices
+    {$x=-\dfrac{\pi}{2}+2k\pi,\ k\in\mathbb{Z}$}
+    {$x\in\varnothing$}
+    {$\solpair{x=-\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb{Z}}{x=\dfrac{7\pi}{6}+2k\pi,\ k\in\mathbb{Z}}$}
+    {$x=\dfrac{\pi}{2}+2k\pi,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $4\sin x=3$ là
+  \twochoices
+    {$x\in\varnothing$}
+    {$\solpair{x=\arcsin\dfrac34+2k\pi,\ k\in\mathbb{Z}}{x=-\arcsin\dfrac34+2k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=\arcsin\dfrac34+2k\pi,\ k\in\mathbb{Z}}{x=\pi-\arcsin\dfrac34+2k\pi,\ k\in\mathbb{Z}}$}
+    {$x=\pm\dfrac{3\pi}{4}+2k\pi,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\sin(x-60^\circ)=-\dfrac{\sqrt2}{2}$ là
+  \twochoices
+    {$\solpair{x=285^\circ+k360^\circ,\ k\in\mathbb{Z}}{x=15^\circ+k360^\circ,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=225^\circ+k360^\circ,\ k\in\mathbb{Z}}{x=45^\circ+k360^\circ,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=60^\circ+\dfrac{5\pi}{4}+k360^\circ,\ k\in\mathbb{Z}}{x=15^\circ+2k\pi,\ k\in\mathbb{Z}}$}
+    {$x=\pm60^\circ+k180^\circ,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\sin\left(2x+\dfrac{\pi}{2}\right)=-\sin x$ là
+  \twochoices
+    {$\solpair{x=-\dfrac{\pi}{6}+\dfrac{2k\pi}{3},\ k\in\mathbb{Z}}{x=\dfrac{\pi}{2}+2k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=-\dfrac{\pi}{2}+\dfrac{2k\pi}{3},\ k\in\mathbb{Z}}{x=\dfrac{\pi}{2}+2k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=-\dfrac{\pi}{3}+\dfrac{2k\pi}{2},\ k\in\mathbb{Z}}{x=\dfrac{\pi}{4}+k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=\dfrac{\pi}{2}+\dfrac{2k\pi}{3},\ k\in\mathbb{Z}}{x=-\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb{Z}}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\sin\left(2x+\dfrac{\pi}{3}\right)=\cos x$ là
+  \twochoices
+    {$\solpair{x=\dfrac{\pi}{12}+\dfrac{k\pi}{2},\ k\in\mathbb{Z}}{x=\dfrac{\pi}{3}+2k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=-\dfrac{\pi}{3}+\dfrac{k\pi}{3},\ k\in\mathbb{Z}}{x=\dfrac{\pi}{2}+k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=\dfrac{\pi}{18}+\dfrac{2k\pi}{3},\ k\in\mathbb{Z}}{x=\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb{Z}}$}
+    {$x=\pm\dfrac{\pi}{3}+2k\pi,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\sin\left(3x+\dfrac{\pi}{4}\right)+\cos x=0$ là
+  \twochoices
+    {$\solpair{x=-\dfrac{3\pi}{8}+k\pi,\ k\in\mathbb{Z}}{x=\dfrac{5\pi}{16}+\dfrac{k\pi}{2},\ k\in\mathbb{Z}}$}
+    {$\solpair{x=-\dfrac{\pi}{6}+\dfrac{k\pi}{2},\ k\in\mathbb{Z}}{x=\dfrac{\pi}{12}+k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=\dfrac{\pi}{12}+\dfrac{k\pi}{4},\ k\in\mathbb{Z}}{x=-\dfrac{\pi}{4}+k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=-\dfrac{5\pi}{8}+\dfrac{k\pi}{2},\ k\in\mathbb{Z}}{x=-\dfrac{\pi}{12}+k\pi,\ k\in\mathbb{Z}}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\cos x=2$ là
+  \twochoices
+    {$x\in\varnothing$}
+    {$x=\pm\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb{Z}$}
+    {$x=\pm\dfrac{\pi}{3}+2k\pi,\ k\in\mathbb{Z}$}
+    {$x=\pm\arccos 2+2k\pi,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\cos x=-\dfrac14$ là
+  \twochoices
+    {$x=\pm\dfrac{\pi}{4}+2k\pi,\ k\in\mathbb{Z}$}
+    {$x=\pm\arccos\left(-\dfrac14\right)+2k\pi,\ k\in\mathbb{Z}$}
+    {$x=\pm\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb{Z}$}
+    {$x=\pm\arccos\dfrac14+2k\pi,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\cos\left(x-\dfrac{\pi}{3}\right)=-\dfrac12$ là
+  \twochoices
+    {$x=\pm\dfrac{2\pi}{3}+2k\pi,\ k\in\mathbb{Z}$}
+    {$\solpair{x=\pi+k\pi,\ k\in\mathbb{Z}}{x=\dfrac{\pi}{3}+k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=\pi+2k\pi,\ k\in\mathbb{Z}}{x=-\dfrac{\pi}{3}+2k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=\dfrac{\pi}{3}+2k\pi,\ k\in\mathbb{Z}}{x=-\dfrac{\pi}{4}+2k\pi,\ k\in\mathbb{Z}}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\cos\left(2x-\dfrac{\pi}{6}\right)=-\cos x$ là
+  \twochoices
+    {$x=\pm\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb{Z}$}
+    {$\solpair{x=\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb{Z}}{x=-\dfrac{\pi}{9}+\dfrac{2k\pi}{3},\ k\in\mathbb{Z}}$}
+    {$\solpair{x=\pi+2k\pi,\ k\in\mathbb{Z}}{x=-\dfrac{\pi}{3}+2k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=\dfrac{7\pi}{6}+2k\pi,\ k\in\mathbb{Z}}{x=-\dfrac{5\pi}{18}+\dfrac{2k\pi}{3},\ k\in\mathbb{Z}}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\cos(2x+3)=\sin x$ là
+  \twochoices
+    {$x=\pm\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb{Z}$}
+    {$\solpair{x=\dfrac{\pi}{4}+2k\pi,\ k\in\mathbb{Z}}{x=-\dfrac{\pi}{3}+k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=2k\pi,\ k\in\mathbb{Z}}{x=\dfrac{\pi}{4}+k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=-3-\dfrac{\pi}{2}+2k\pi,\ k\in\mathbb{Z}}{x=-1+\dfrac{\pi}{6}+\dfrac{2k\pi}{3},\ k\in\mathbb{Z}}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\cos(2x-1)=-\sin x$ là
+  \twochoices
+    {$x=\pm\dfrac{\pi}{2}+2k\pi,\ k\in\mathbb{Z}$}
+    {$\solpair{x=1+\dfrac{\pi}{2}+2k\pi,\ k\in\mathbb{Z}}{x=1-\dfrac{\pi}{2}+k\pi,\ k\in\mathbb{Z}}$}
+    {$\solpair{x=1+\dfrac{\pi}{2}+2k\pi,\ k\in\mathbb{Z}}{x=\dfrac13-\dfrac{\pi}{6}+\dfrac{2k\pi}{3},\ k\in\mathbb{Z}}$}
+    {$\solpair{x=1-\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb{Z}}{x=1+\dfrac{\pi}{12}+2k\pi,\ k\in\mathbb{Z}}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\tan\left(x+\dfrac{\pi}{3}\right)=\sqrt3$ là
+  \twochoices
+    {$x=\dfrac{\pi}{3}+k\pi,\ k\in\mathbb{Z}$}
+    {$x=\dfrac{\pi}{6}+k\pi,\ k\in\mathbb{Z}$}
+    {$x=\dfrac{\pi}{2}+k\pi,\ k\in\mathbb{Z}$}
+    {$x=k\pi,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\tan x=-2\sqrt3$ là
+  \twochoices
+    {$x=\pm\arctan(2\sqrt3)+k\pi,\ k\in\mathbb{Z}$}
+    {$x=\pm\arctan(2\sqrt3)+2k\pi,\ k\in\mathbb{Z}$}
+    {$x=\dfrac{\pi}{3}+k\pi,\ k\in\mathbb{Z}$}
+    {$x=\arctan(-2\sqrt3)+k\pi,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM21]}} Tất cả các nghiệm của phương trình $\tan(x-40^\circ)=\dfrac{1}{\sqrt3}$ là
+  \twochoices
+    {$x=100^\circ+k180^\circ,\ k\in\mathbb{Z}$}
+    {$x=70^\circ+k180^\circ,\ k\in\mathbb{Z}$}
+    {$x=90^\circ+k180^\circ,\ k\in\mathbb{Z}$}
+    {$x=30^\circ+k180^\circ,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM31]}} Tất cả các nghiệm của phương trình $\tan(2x-3)=\cot x$ là
+  \twochoices
+    {$x=-1+\dfrac{\pi}{6}+\dfrac{k\pi}{3},\ k\in\mathbb{Z}$}
+    {$x=1+\dfrac{\pi}{6}+k\pi,\ k\in\mathbb{Z}$}
+    {$x=1+\dfrac{\pi}{6}+\dfrac{k\pi}{3},\ k\in\mathbb{Z}$}
+    {$x=\dfrac{\pi}{6}+\dfrac{k\pi}{3},\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM31]}} Tất cả các nghiệm của phương trình $\tan(2x-3)=-\tan x$ là
+  \twochoices
+    {$x=2+k\pi,\ k\in\mathbb{Z}$}
+    {$x=\dfrac{\pi}{3}+k\pi,\ k\in\mathbb{Z}$}
+    {$x=1+\dfrac{k\pi}{3},\ k\in\mathbb{Z}$}
+    {$x=-1+k\pi,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM31]}} Tất cả các nghiệm của phương trình $\tan\left(x-\dfrac{\pi}{3}\right)\tan 2x=1$ là
+  \twochoices
+    {$x=\dfrac{\pi}{4}+\dfrac{k\pi}{2},\ k\in\mathbb{Z}$}
+    {$x=\dfrac{k\pi}{3},\ k\in\mathbb{Z}$}
+    {$x=\dfrac{5\pi}{18}+\dfrac{k\pi}{3},\ k\in\mathbb{Z}$}
+    {$x=\dfrac{5\pi}{6}+k\pi,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM31]}} Nghiệm của phương trình $\tan\left(2x+\dfrac{\pi}{2}\right)=\tan x$ là
+  \twochoices
+    {$x\in\varnothing$}
+    {$x=\dfrac{\pi}{2}+k\pi,\ k\in\mathbb{Z}$}
+    {$x=-\dfrac{\pi}{2}+k\pi,\ k\in\mathbb{Z}$}
+    {$x=k\pi,\ k\in\mathbb{Z}$}
+
+\item {\small\textcolor{answerblue}{[TDM41]}} Hỏi phương trình $\sin\left(x-\dfrac{\pi}{3}\right)=\dfrac12$ có tất cả bao nhiêu nghiệm $x\in[0;15\pi]$?
+  \fourchoices
+    {$15$}
+    {$8$}
+    {$13$}
+    {$6$}
+
+\item {\small\textcolor{answerblue}{[TDM41]}} Hỏi phương trình $\tan\left(2x+\dfrac{\pi}{4}\right)=\sqrt3$ có tất cả bao nhiêu nghiệm $x\in(0;100)$?
+  \fourchoices
+    {$63$}
+    {$200$}
+    {$64$}
+    {$19$}
+
+\item {\small\textcolor{answerblue}{[TDM41]}} Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để phương trình $8\sin x=m$ có đúng 2 nghiệm thuộc khoảng $\left(0;\dfrac{10\pi}{3}\right)$?
+  \fourchoices
+    {$1$}
+    {$3$}
+    {$2$}
+    {$4$}
+
+\item {\small\textcolor{answerblue}{[TDM42]}} Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để phương trình $8\tan\left(2x-\dfrac{\pi}{3}\right)=m$ có đúng 3 nghiệm thuộc khoảng $\left(0;\dfrac{4\pi}{3}\right)$?
+  \fourchoices
+    {$14$}
+    {$26$}
+    {$27$}
+    {$25$}
+
+\item {\small\textcolor{answerblue}{[TDM52]}} Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để phương trình $10\cos 3x=m$ có đúng 151 nghiệm thuộc khoảng $\left(0;\dfrac{201\pi}{4}\right]$?
+  \fourchoices
+    {$1$}
+    {$3$}
+    {$2$}
+    {$4$}
+
+
+\end{questions}
+\vspace{3mm}
+\textbf{PHẦN C. Các câu rèn luyện thêm 9.2+ (5 câu).}
+\begin{questions}[resume]
+\item {\small\textcolor{answerblue}{[TDM41]}} Hỏi phương trình $\sin\left(2x-\dfrac{\pi}{3}\right)=0{,}6$ có tất cả bao nhiêu nghiệm $x\in(0;2025)$?
+  \fourchoices
+    {$645$}
+    {$1290$}
+    {$1288$}
+    {$644$}
+
+\item {\small\textcolor{answerblue}{[TDM41]}} Hỏi phương trình $\cot 3x=-\sqrt3$ có tất cả bao nhiêu nghiệm $x\in\left[-\dfrac{\pi}{12};100\pi\right)$?
+  \fourchoices
+    {$300$}
+    {$151$}
+    {$150$}
+    {$301$}
+
+\item {\small\textcolor{answerblue}{[TDM41]}} Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để phương trình $20\cos x=m$ có đúng 3 nghiệm thuộc đoạn $\left[-\dfrac{\pi}{3};\dfrac{6\pi}{3}\right]$?
+  \fourchoices
+    {$20$}
+    {$19$}
+    {$21$}
+    {$22$}
+
+\item {\small\textcolor{answerblue}{[TDM42]}} Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m\in[-30;30]$ để phương trình $4\cot\left(3x-\dfrac{\pi}{6}\right)=m$ có đúng 3 nghiệm thuộc khoảng $\left(-\dfrac{\pi}{12};\dfrac{4\pi}{3}\right)$?
+  \fourchoices
+    {$38$}
+    {$54$}
+    {$55$}
+    {$56$}
+
+\item {\small\textcolor{answerblue}{[TDM52]}} Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để phương trình $20\sin\left(3x-\dfrac{\pi}{2}\right)=m$ có đúng 151 nghiệm thuộc đoạn $\left[-\dfrac{\pi}{2};\dfrac{400\pi}{3}\right]$?
+  \fourchoices
+    {$21$}
+    {$20$}
+    {$22$}
+    {$19$}
+
+
+\end{questions}
+\vspace{5mm}
+\begin{center}\textbf{---------- HẾT ----------}\end{center}
+\end{document}
