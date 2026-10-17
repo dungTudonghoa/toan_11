@@ -9,9 +9,9 @@
  \usepackage[T5]{fontenc}
  \usepackage{mathptmx}
 \else
- \usepackage{fontspec}
- \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
  \usepackage{mathptmx}
+ \usepackage{fontspec}
+ \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\IfFontExistsTF{Tinos}{\setmainfont{Tinos}}{\setmainfont{Latin Modern Roman}}}
 \fi
 \usepackage{amsmath,amssymb}
 \usepackage{xcolor,tikz,graphicx,array,tabularx,enumitem}
