@@ -1,0 +1,338 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[top=16mm,bottom=18mm,left=16mm,right=16mm,headheight=0pt,headsep=0mm,footskip=10mm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T5]{fontenc}
+  \usepackage{mathptmx}
+\else
+  \usepackage{fontspec}
+  \usepackage{mathptmx}
+  \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\IfFontExistsTF{Tinos}{\setmainfont{Tinos}}{\setmainfont{TeX Gyre Termes}}}
+\fi
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{array,tabularx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+% Mau va phong cach giu theo BTVN_Luong_giac_01_B1.tex.
+\definecolor{questionpurple}{RGB}{137,38,143}
+\definecolor{answerblue}{RGB}{35,45,140}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1.12}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\small Chuyên đề I -- Toán 11}
+\fancyfoot[R]{\small Trang \thepage/\pageref{LastPage} -- Đề test số 05}
+\renewcommand{\footrulewidth}{.4pt}
+
+\newlist{questions}{enumerate}{1}
+\setlist[questions]{label=\textcolor{questionpurple}{\bfseries Câu \arabic*.},
+ leftmargin=0pt,itemindent=16mm,labelwidth=14mm,labelsep=2mm,align=left,
+ itemsep=7pt,topsep=5pt,parsep=0pt}
+\newcommand{\answerlabel}[1]{\tikz[baseline=(choice.base)]\node[
+ draw=black!65,text=answerblue,circle,inner sep=0pt,minimum size=4.8mm,
+ line width=.4pt,font=\normalsize] (choice) {#1};}
+\newcommand{\fourchoices}[4]{\par\begingroup\small
+ \setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.45}
+ \begin{tabularx}{\linewidth}{@{}*{4}{>{\raggedright\arraybackslash}X}@{}}
+ \answerlabel{A}~#1 & \answerlabel{B}~#2 &
+ \answerlabel{C}~#3 & \answerlabel{D}~#4
+ \end{tabularx}\endgroup}
+\newcommand{\twochoices}[4]{\par\begingroup\small
+ \setlength{\tabcolsep}{1pt}\renewcommand{\arraystretch}{1.75}
+ \begin{tabularx}{\linewidth}{@{}*{2}{>{\raggedright\arraybackslash}X}@{}}
+ \answerlabel{A}~#1 & \answerlabel{B}~#2\\
+ \answerlabel{C}~#3 & \answerlabel{D}~#4
+ \end{tabularx}\endgroup}
+\newcommand{\solpair}[2]{\left[\begin{aligned}#1\\[1pt]#2\end{aligned}\right.}
+\newcommand{\Zk}{,\ k\in\mathbb{Z}}
+\newcommand{\tdm}[1]{{\small\textcolor{answerblue}{[#1]}}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{.35\textwidth}
+  \centering
+  {\bfseries CHUYÊN ĐỀ I -- TOÁN -- 11\par}
+  \vspace{2pt}\rule{.72\linewidth}{.4pt}\par\vspace{3pt}
+  CHƯƠNG I\par\vspace{4pt}
+  {\itshape ĐỀ TEST SỐ 05\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{.62\textwidth}
+  \centering
+  {\bfseries HÀM SỐ LƯỢNG GIÁC\par
+  VÀ PHƯƠNG TRÌNH LƯỢNG GIÁC\par}
+  \vspace{5pt}
+  {\small\bfseries BÀI 5. HÀM SỐ VÀ PTLG DẠNG\par
+  $a\sin x+b\cos x$\par}
+\end{minipage}
+\vspace{7mm}
+\noindent
+\begin{minipage}[t]{.72\textwidth}
+  \textbf{Họ, tên thí sinh:}\dotfill\par
+  \vspace{3pt}
+  \textbf{Số báo danh:}\dotfill
+\end{minipage}\hfill
+\begin{minipage}[t]{.25\textwidth}
+  \raggedleft\setlength{\fboxsep}{4pt}
+  \fbox{\textbf{Đề test số: 05}}
+\end{minipage}
+
+\vspace{5mm}
+{\footnotesize\itshape Nguồn bài tập: Đề TDM11X16 -- Nguyễn Đăng Ái (Tư duy mở). Nội dung gồm 35 câu trong ba phần A, B và C.\par}
+\vspace{3mm}
+\textbf{PHẦN A. Các bài tập nền tảng và vận dụng trọng điểm (21 câu).}
+\begin{questions}
+\item \tdm{TDM31} Giá trị lớn nhất của hàm số $y=\sin x-\sqrt3\cos x$ bằng
+  \fourchoices{$2$}{$1+\sqrt3$}{$4$}{$2\sqrt2$}
+
+\item \tdm{TDM31} Giá trị nhỏ nhất của hàm số $y=3\sin2x+4\cos2x$ bằng
+  \fourchoices{$-7$}{$-5$}{$0$}{$-4$}
+
+\item \tdm{TDM31} Giá trị lớn nhất của hàm số
+  $y=\sqrt{\sin2x+\cos2x-\sqrt2+4}$ bằng
+  \fourchoices{$\sqrt{4-\sqrt2}$}{$2\sqrt2$}{$\sqrt3$}{$2$}
+
+\item \tdm{TDM32} Giá trị lớn nhất của hàm số
+  $y=2\cos^2x+6\sin x\cos x+1$ là
+  \fourchoices{$2+\sqrt{10}$}{$9$}{$5$}{$4+2\sqrt3$}
+
+\item \tdm{TDM32} Giá trị lớn nhất của hàm số
+  $y=2\cos x\cos3x-2\cos^2 2x+3\sin2x$ là
+  \fourchoices{$7$}{$\sqrt{10}$}{$4$}{$\sqrt{10}-1$}
+
+\item \tdm{TDM32} Giá trị lớn nhất của hàm số
+  $y=2\cos\left(x-\dfrac{\pi}{4}\right)+
+  \cos\left(x+\dfrac{\pi}{3}\right)$ là
+  \fourchoices{$3+2\sqrt2$}{$3$}{$\sqrt5$}{$\sqrt{5+\sqrt2-\sqrt6}$}
+
+\item \tdm{TDM32} Giá trị nhỏ nhất của hàm số
+  $y=2\cos\left(2x+\dfrac{\pi}{4}\right)+
+  4\sin\left(2x+\dfrac{\pi}{3}\right)$ là
+  \twochoices
+    {$-2\sqrt{5+\sqrt2-\sqrt6}$}
+    {$-2\sqrt{5+\sqrt6-\sqrt2}$}
+    {$6$}
+    {$-2\sqrt5$}
+
+\item \tdm{TDM21} Tất cả các nghiệm của phương trình
+  $\sin x-\cos x=\sqrt2$ là
+  \twochoices
+    {$x=\dfrac{3\pi}{4}+2k\pi\Zk$}
+    {$x=\dfrac{\pi}{2}+2k\pi\Zk$}
+    {$x=\dfrac{\pi}{4}+2k\pi\Zk$}
+    {$x=\dfrac{3\pi}{2}+2k\pi\Zk$}
+
+\item \tdm{TDM21} Tất cả các nghiệm của phương trình
+  $\sin x+\cos x=-1$ là
+  \twochoices
+    {$\solpair{x=\dfrac{\pi}{2}+2k\pi\Zk}{x=2k\pi\Zk}$}
+    {$x=\pm\dfrac{\pi}{2}+2k\pi\Zk$}
+    {$\solpair{x=-\dfrac{\pi}{2}+2k\pi\Zk}{x=\pi+2k\pi\Zk}$}
+    {$\solpair{x=-\dfrac{\pi}{4}+2k\pi\Zk}{x=\dfrac{5\pi}{4}+2k\pi\Zk}$}
+
+\item \tdm{TDM21} Tất cả các nghiệm của phương trình
+  $\sin2x+\sqrt3\cos2x=1$ là
+  \twochoices
+    {$\solpair{x=-\dfrac{\pi}{12}+2k\pi\Zk}{x=\dfrac{\pi}{4}+2k\pi\Zk}$}
+    {$\solpair{x=-\dfrac{\pi}{4}+k\pi\Zk}{x=\dfrac{\pi}{2}+k\pi\Zk}$}
+    {$\solpair{x=-\dfrac{\pi}{4}+2k\pi\Zk}{x=\dfrac{\pi}{2}+2k\pi\Zk}$}
+    {$\solpair{x=-\dfrac{\pi}{12}+k\pi\Zk}{x=\dfrac{\pi}{4}+k\pi\Zk}$}
+
+\item \tdm{TDM21} Tất cả các nghiệm của phương trình
+  $3\sin2x-4\cos2x=5$ là
+  \twochoices
+    {$x=-\dfrac12\arccos\left(\dfrac45\right)+\dfrac{\pi}{2}+k\pi\Zk$}
+    {$x=-\dfrac12\arccos\left(\dfrac35\right)+\dfrac{\pi}{2}+k\pi\Zk$}
+    {$x=\dfrac12\arccos\left(\dfrac45\right)+\dfrac{\pi}{2}+k\pi\Zk$}
+    {$x=-\dfrac12\arcsin\left(\dfrac45\right)+\dfrac{\pi}{2}+k\pi\Zk$}
+
+\item \tdm{TDM21} Tất cả các nghiệm của phương trình
+  $3\sin2x+4\cos2x=4$ là
+  \twochoices
+    {$\solpair{x=2k\pi\Zk}{x=-\arccos\dfrac45+2k\pi\Zk}$}
+    {$\solpair{x=\dfrac{\pi}{2}-\arcsin\dfrac45+k\pi\Zk}{x=\arcsin\dfrac45+k\pi\Zk}$}
+    {$\solpair{x=\dfrac{\pi}{2}+k\pi\Zk}{x=-\arccos\dfrac35+k\pi\Zk}$}
+    {$\solpair{x=k\pi\Zk}{x=\arccos\dfrac45+k\pi\Zk}$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+  $\cos\left(x-\dfrac{\pi}{2}\right)+\sqrt3\cos(x+\pi)=2$ là
+  \twochoices
+    {$x=\dfrac{\pi}{6}+k\pi\Zk$}
+    {$x=\dfrac{2\pi}{3}+2k\pi\Zk$}
+    {$x=\dfrac{5\pi}{6}+2k\pi\Zk$}
+    {$x=-\dfrac{\pi}{4}+2k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+  $\cos x\cos3x+2\sin2x=\sqrt5-\sin x\sin3x$ là
+  \twochoices
+    {$x=\dfrac12\arccos\dfrac{2}{\sqrt5}+k\pi\Zk$}
+    {$x=\dfrac12\arccos\dfrac{1}{\sqrt5}+k\pi\Zk$}
+    {$x=\arccos\dfrac{1}{\sqrt5}+2k\pi\Zk$}
+    {$x=\arccos\dfrac{2}{\sqrt5}+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+  $2\sin3x\cos x+2=\sin4x-\sqrt3\sin\left(\dfrac{\pi}{2}-2x\right)$ là
+  \twochoices
+    {$x=-\dfrac{5\pi}{6}+k\pi\Zk$}
+    {$x=-\dfrac{5\pi}{12}+k\pi\Zk$}
+    {$x=\dfrac{\pi}{2}+k\pi\Zk$}
+    {$x=-\dfrac{3\pi}{4}+k\pi\Zk$}
+
+\item \tdm{TDM42} Cho phương trình
+  $(\sin x+m\cos x)^2+\sin2x=\dfrac12$.
+  Hãy tìm tất cả những giá trị thực của tham số $m$ để phương trình đã cho có nghiệm thực?
+  \twochoices
+    {$\solpair{m\leq-1}{m\geq3}$}
+    {$\dfrac{-4-\sqrt3}{2}\leq m\leq\dfrac{-4+\sqrt3}{2}$}
+    {$\solpair{m\leq\dfrac{-4-\sqrt6}{2}}{m\geq\dfrac{-4+\sqrt6}{2}}$}
+    {$\solpair{m\leq\dfrac{-2-\sqrt6}{4}}{m\geq\dfrac{-2+\sqrt6}{4}}$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+  $(4\sin x-\sqrt3)\sin x+\cos x=2$ là
+  \twochoices
+    {$\solpair{x=\dfrac{\pi}{3}+2k\pi\Zk}{x=-\dfrac{\pi}{3}+\dfrac{2k\pi}{3}\Zk}$}
+    {$\solpair{x=\dfrac{\pi}{6}+2k\pi\Zk}{x=-\dfrac{\pi}{18}+\dfrac{2k\pi}{3}\Zk}$}
+    {$\solpair{x=\dfrac{\pi}{3}+2k\pi\Zk}{x=-\dfrac{\pi}{9}+\dfrac{2k\pi}{3}\Zk}$}
+    {$\solpair{x=\dfrac{\pi}{2}+2k\pi\Zk}{x=-\dfrac{\pi}{6}+\dfrac{2k\pi}{3}\Zk}$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+  $\dfrac{1-2\sin x}{1+2\sin x}=\dfrac{1-\sin x}{\sqrt3\cos x}$ là
+  \twochoices
+    {$\solpair{x=\dfrac{\pi}{2}+2k\pi\Zk}{x=\dfrac{\pi}{18}-\dfrac{2k\pi}{3}\Zk}$}
+    {$\solpair{x=\dfrac{\pi}{2}+2k\pi\Zk}{x=-\dfrac{\pi}{18}+\dfrac{2k\pi}{3}\Zk}$}
+    {$x=\dfrac{\pi}{18}+\dfrac{2k\pi}{3}\Zk$}
+    {$\solpair{x=\dfrac{\pi}{2}+k\pi\Zk}{x=\dfrac{\pi}{18}+\dfrac{2k\pi}{3}\Zk}$}
+
+\item \tdm{TDM42} Cho phương trình
+  $(\sin x+m\cos x)^2+\sin2x=\dfrac12$.
+  Hãy tìm tất cả những giá trị thực của tham số $m$ để phương trình đã cho có nghiệm thực?
+  \twochoices
+    {$\solpair{m\leq-1}{m\geq3}$}
+    {$\dfrac{-4-\sqrt3}{2}\leq m\leq\dfrac{-4+\sqrt3}{2}$}
+    {$\solpair{m\leq\dfrac{-4-\sqrt6}{2}}{m\geq\dfrac{-4+\sqrt6}{2}}$}
+    {$\solpair{m\leq\dfrac{-2-\sqrt6}{4}}{m\geq\dfrac{-2+\sqrt6}{4}}$}
+
+\item \tdm{TDM42} Giá trị lớn nhất của hàm số
+  $y=\dfrac{\sin x+2}{\cos x-\sin x+2}$ là
+  \fourchoices
+    {$\dfrac{5+\sqrt{19}}{2}$}
+    {$4-\sqrt2$}
+    {$2\sqrt5$}
+    {$\dfrac{6+\sqrt{15}}{2}$}
+
+\item \tdm{TDM42} Cho hai số thực $x,y$ thỏa mãn hệ thức $x^2+y^2=1$.
+  Giá trị nhỏ nhất của biểu thức
+  $P=\dfrac{x^2+1}{y^2-4xy+6}$ bằng
+  \fourchoices
+    {$\dfrac{5+\sqrt6}{19}$}
+    {$\dfrac{8-\sqrt6}{12}$}
+    {$\dfrac16$}
+    {$\dfrac{5-\sqrt6}{19}$}
+\end{questions}
+
+\vspace{3mm}
+\textbf{PHẦN B. Các bài tập vận dụng 8+ làm thêm (8 câu).}
+\begin{questions}[resume]
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+  $(\cos^4x-\sin^4x)+\sqrt3(\sin x+\cos x)^2=2+\sqrt3$ là
+  \twochoices
+    {$x=-\dfrac{\pi}{3}+k\pi\Zk$}
+    {$x=\dfrac{\pi}{6}+k\pi\Zk$}
+    {$x=\dfrac{\pi}{2}+2k\pi\Zk$}
+    {$x=\dfrac{\pi}{4}+k\pi\Zk$}
+
+\item \tdm{TDM42} Cho phương trình
+  $3\sin^2x+2m\sin x\cos x-\cos^2x=5$.
+  Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m\in[-20;20]$ để phương trình đã cho có nghiệm thực $x$?
+  \fourchoices{$32$}{$17$}{$6$}{$34$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+  $3\sin x-4\cos2x=3\sin2x+4\cos x$ là
+  \twochoices
+    {$\solpair{x=\arccos\dfrac35+2k\pi\Zk}{x=\dfrac{\pi}{3}+\dfrac{2k\pi}{3}\Zk}$}
+    {$\solpair{x=-2\arccos\dfrac35+2k\pi\Zk}{x=\dfrac{\pi}{3}+\dfrac{2k\pi}{3}\Zk}$}
+    {$\solpair{x=-2\arccos\dfrac45+2k\pi\Zk}{x=-\dfrac{\pi}{3}+\dfrac{2k\pi}{3}\Zk}$}
+    {$\solpair{x=-2\arcsin\dfrac35+2k\pi\Zk}{x=\dfrac{\pi}{3}+\dfrac{2k\pi}{3}\Zk}$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+  $\sin2x+2\sin x=\sqrt3(2\cos x-\cos2x)$ là
+  \twochoices
+    {$x=\dfrac{\pi}{2}+k\pi\Zk$}
+    {$x=\dfrac{\pi}{6}+k\pi\Zk$}
+    {$x=\dfrac{\pi}{3}+k\pi\Zk$}
+    {$x=-\dfrac{\pi}{4}+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+  $\cos2x+\sqrt3\sin2x=3\sqrt3\sin x-3\cos x+2$ là
+  \twochoices
+    {$x=\dfrac{\pi}{2}+2k\pi\Zk$}
+    {$x=\dfrac{5\pi}{6}+k\pi\Zk$}
+    {$x=\dfrac{\pi}{6}+2k\pi\Zk$}
+    {$x=\dfrac{\pi}{6}+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+  $2\sin^2x+4\sin x-\sqrt3\sin2x=0$ là
+  \twochoices
+    {$\solpair{x=k\pi\Zk}{x=-\dfrac{\pi}{6}+2k\pi\Zk}$}
+    {$\solpair{x=2k\pi\Zk}{x=-\dfrac{\pi}{6}+k\pi\Zk}$}
+    {$\solpair{x=2k\pi\Zk}{x=-\dfrac{\pi}{3}+2k\pi\Zk}$}
+    {$\solpair{x=\dfrac{\pi}{4}+k\pi\Zk}{x=-\dfrac{\pi}{3}+2k\pi\Zk}$}
+
+\item \tdm{TDM42} Đếm số nghiệm của phương trình
+  $(\sin x-\sqrt3\cos x)\sqrt{20x-x^2}=0$ là
+  \fourchoices{$2$}{$6$}{$7$}{$9$}
+
+\item \tdm{TDM42} Giá trị lớn nhất của hàm số
+  $y=\dfrac{1+\cos2x}{\cos^2x-\sin2x+3}$ là
+  \fourchoices{$0$}{$-\dfrac32$}{$\dfrac6{11}$}{$\dfrac{3+2\sqrt5}{2}$}
+\end{questions}
+
+\vspace{3mm}
+\textbf{PHẦN C. Các bài tập vận dụng, vận dụng cao rèn luyện thêm (6 câu).}
+\begin{questions}[resume]
+\item \tdm{TDM52} Cho hàm số
+  $y=\dfrac{m+\sin x}{\cos x-2\sin x+3}$, với $m$ là tham số thực.
+  Hỏi có tất cả bao nhiêu giá trị nguyên dương của tham số $m$ để giá trị nhỏ nhất của hàm số không vượt quá $1$?
+  \fourchoices{$3$}{$6$}{$7$}{$2$}
+
+\item \tdm{TDM42} Cho hai số thực $x,y$ thỏa mãn hệ thức $x^2+4y^2=16$.
+  Giá trị lớn nhất của biểu thức
+  $P=\dfrac{x^2+2}{x^2-xy+6}$ bằng
+  \fourchoices{$1$}{$2+2\sqrt3$}{$\dfrac9{29}$}{$\dfrac{6+\sqrt6}{2}$}
+
+\item \tdm{TDM42} Cho hai số thực $x,y$ thỏa mãn hệ thức $x^2-xy+y^2=9$.
+  Giá trị lớn nhất của biểu thức
+  $P=\dfrac{xy+1}{x^2+2}$ bằng
+  \fourchoices
+    {$\dfrac{8+\sqrt{21}}{14}$}
+    {$\dfrac{7+3\sqrt{21}}{14}$}
+    {$\dfrac{10+\sqrt{19}}{14}$}
+    {$2-\sqrt3$}
+
+\item \tdm{TDM42} Cho phương trình
+  $(m^2-3m)x+m-\sin x+\sqrt3\cos x=0$.
+  Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để phương trình đã cho vô nghiệm?
+  \fourchoices{$1$}{$2$}{$0$}{Vô số}
+
+\item \tdm{TDM42} Cho phương trình
+  $(m^2-1)x+2m-1-m\sin x+\cos x=0$.
+  Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để phương trình đã cho có vô số nghiệm?
+  \fourchoices{Vô số}{$1$}{$2$}{$0$}
+
+\item \tdm{TDM42} Cho phương trình
+  $(m^2-3m+2)x+3m-2-2\sin x+m\cos x=0$.
+  Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m\in[-20;20]$
+  để phương trình đã cho có nghiệm với số nghiệm hữu hạn?
+  \fourchoices{$21$}{$19$}{$37$}{$39$}
+\end{questions}
+
+\vspace{5mm}
+\begin{center}\textbf{---------- HẾT ----------}\end{center}
+\end{document}
