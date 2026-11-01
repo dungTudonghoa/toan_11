@@ -1,0 +1,374 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[top=16mm,bottom=18mm,left=16mm,right=16mm,headheight=0pt,headsep=0mm,footskip=10mm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T5]{fontenc}
+  \usepackage{mathptmx}
+\else
+  \usepackage{fontspec}
+  \usepackage{mathptmx}
+  \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\IfFontExistsTF{Tinos}{\setmainfont{Tinos}}{\setmainfont{TeX Gyre Termes}}}
+\fi
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor,tikz,graphicx,array,tabularx,enumitem,fancyhdr,lastpage}
+
+% Giữ phong cách BTVN_Luong_giac_B5.tex; giảm khoảng trắng của PDF gốc.
+\definecolor{questionpurple}{RGB}{137,38,143}
+\definecolor{answerblue}{RGB}{35,45,140}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1.10}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\small Chuyên đề I -- Toán 11}
+\fancyfoot[R]{\small Trang \thepage/\pageref{LastPage} -- Đề test số 06}
+\renewcommand{\footrulewidth}{.4pt}
+
+\newlist{questions}{enumerate}{1}
+\setlist[questions]{label=\textcolor{questionpurple}{\bfseries Câu \arabic*.},
+ leftmargin=0pt,itemindent=16mm,labelwidth=14mm,labelsep=2mm,align=left,
+ itemsep=5pt,topsep=3pt,parsep=0pt}
+\newcommand{\answerlabel}[1]{\tikz[baseline=(choice.base)]\node[
+ draw=black!65,text=answerblue,circle,inner sep=0pt,minimum size=4.8mm,
+ line width=.4pt,font=\normalsize] (choice) {#1};}
+\newcommand{\fourchoices}[4]{\par\begingroup\small
+ \setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.4}
+ \begin{tabularx}{\linewidth}{@{}*{4}{>{\raggedright\arraybackslash}X}@{}}
+ \answerlabel{A}~#1 & \answerlabel{B}~#2 &
+ \answerlabel{C}~#3 & \answerlabel{D}~#4
+ \end{tabularx}\endgroup}
+\newcommand{\twochoices}[4]{\par\begingroup\small
+ \setlength{\tabcolsep}{1pt}\renewcommand{\arraystretch}{1.55}
+ \begin{tabularx}{\linewidth}{@{}*{2}{>{\raggedright\arraybackslash}X}@{}}
+ \answerlabel{A}~#1 & \answerlabel{B}~#2\\
+ \answerlabel{C}~#3 & \answerlabel{D}~#4
+ \end{tabularx}\endgroup}
+\newcommand{\densechoices}[4]{\par\begingroup\footnotesize
+ \setlength{\tabcolsep}{1pt}\renewcommand{\arraystretch}{1.32}
+ \begin{tabularx}{\linewidth}{@{}*{2}{>{\raggedright\arraybackslash}X}@{}}
+ \answerlabel{A}~#1 & \answerlabel{B}~#2\\
+ \answerlabel{C}~#3 & \answerlabel{D}~#4
+ \end{tabularx}\endgroup}
+\newcommand{\solpair}[2]{\left[\begin{aligned}#1\\[1pt]#2\end{aligned}\right.}
+\newcommand{\soltriple}[3]{\left[\begin{aligned}#1\\[1pt]#2\\[1pt]#3\end{aligned}\right.}
+\newcommand{\solquad}[4]{\left[\begin{aligned}#1\\[1pt]#2\\[1pt]#3\\[1pt]#4\end{aligned}\right.}
+\newcommand{\Zk}{,\;k\in\mathbb Z}
+\newcommand{\tdm}[1]{{\small\textcolor{answerblue}{[#1]}}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{.35\textwidth}
+  \centering
+  {\bfseries CHUYÊN ĐỀ I -- TOÁN -- 11\par}
+  \vspace{2pt}\rule{.72\linewidth}{.4pt}\par\vspace{3pt}
+  CHƯƠNG I\par\vspace{4pt}
+  {\itshape ĐỀ TEST SỐ 06\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{.62\textwidth}
+  \centering
+  {\bfseries HÀM SỐ LƯỢNG GIÁC\par
+  VÀ PHƯƠNG TRÌNH LƯỢNG GIÁC\par}
+  \vspace{5pt}
+  {\small\bfseries BÀI 6. PHƯƠNG PHÁP ĐẶT ẨN PHỤ\par
+  TRONG PHƯƠNG TRÌNH LƯỢNG GIÁC\par}
+\end{minipage}
+\vspace{6mm}
+\noindent
+\begin{minipage}[t]{.72\textwidth}
+  \textbf{Họ, tên thí sinh:}\dotfill\par
+  \vspace{3pt}
+  \textbf{Số báo danh:}\dotfill
+\end{minipage}\hfill
+\begin{minipage}[t]{.25\textwidth}
+  \raggedleft\setlength{\fboxsep}{4pt}
+  \fbox{\textbf{Đề test số: 06}}
+\end{minipage}
+
+\vspace{4mm}
+{\footnotesize\itshape Nguồn bài tập: Đề TDM11X18 -- Nguyễn Đăng Ái (Tư duy mở).
+Gồm 29 câu trắc nghiệm trong hai phần A và B; không kèm lời giải.\par}
+\vspace{3mm}
+\textbf{PHẦN A. Các bài tập nền tảng và vận dụng trọng điểm (20 câu).}
+\begin{questions}
+\item \tdm{TDM21} Tất cả các nghiệm của phương trình
+ $\sin^2 x-3\sin x-4=0$ là
+ \twochoices
+ {$x=-\dfrac{\pi}{2}+2k\pi\Zk$}
+ {$x=\dfrac{\pi}{2}+2k\pi\Zk$}
+ {$\solpair{x=\arcsin 4+2k\pi}{x=\pi-\arcsin 4+2k\pi}\Zk$}
+ {$x=\dfrac{3\pi}{2}+k\pi\Zk$}
+
+\item \tdm{TDM21} Tất cả các nghiệm của phương trình
+ $\sin^2 x-2\cos x-1=0$ là
+ \twochoices
+ {$x=\dfrac{\pi}{2}+2k\pi\Zk$}
+ {$x=\pi+2k\pi\Zk$}
+ {$x=k\pi\Zk$}
+ {$x=\dfrac{\pi}{2}+k\pi\Zk$}
+
+\item \tdm{TDM21} Tất cả các nghiệm của phương trình
+ $\cos^2 x-4\sin x-1=0$ là
+ \twochoices
+ {$x=\dfrac{\pi}{4}+2k\pi\Zk$}
+ {$x=2k\pi\Zk$}
+ {$x=k\pi\Zk$}
+ {$x=-\dfrac{\pi}{2}+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\sin x\cos 2x+2\sin x-1=0$ là
+ \densechoices
+ {$\soltriple{x=\dfrac{\pi}{2}+2k\pi}
+ {x=\arcsin\dfrac{-1+\sqrt3}{2}+2k\pi}
+ {x=-\arcsin\dfrac{-1+\sqrt3}{2}+2k\pi}\Zk$}
+ {$\soltriple{x=\dfrac{\pi}{2}+2k\pi}
+ {x=\arcsin\dfrac{-1+\sqrt3}{2}+2k\pi}
+ {x=\pi-\arcsin\dfrac{-1+\sqrt3}{2}+2k\pi}\Zk$}
+ {$x=\pm\arccos\dfrac{-1+\sqrt3}{2}+2k\pi\Zk$}
+ {$x=\dfrac{\pi}{2}+2k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\cos 4x-2\sin^2 x-1=0$ là
+ \twochoices
+ {$x=\dfrac{\pi}{2}+\dfrac{k\pi}{2}\Zk$}
+ {$x=\dfrac{\pi}{4}+k\pi\Zk$}
+ {$x=k\pi\Zk$}
+ {$x=\dfrac{\pi}{4}+2k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\cos 5x+\cos x+\cos 2x\cos^2 3x-3\cos 2x=0$ là
+ \densechoices
+ {$\solpair{x=-\dfrac{\pi}{6}+\dfrac{k\pi}{2}}{x=\dfrac{\pi}{12}+\dfrac{2k\pi}{3}}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{4}+\dfrac{k\pi}{2}}{x=\dfrac{2k\pi}{3}}\Zk$}
+ {$\solpair{x=-\dfrac{\pi}{6}+\dfrac{k\pi}{2}}{x=\dfrac{\pi}{3}+\dfrac{2k\pi}{3}}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{2}+k\pi}{x=\pm\dfrac{\pi}{3}+2k\pi}\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\sin^4 x+\cos^4 x-4\sin x\cos x+3=0$ là
+ \densechoices
+ {$x=\pm\dfrac{\pi}{4}+\dfrac{k\pi}{2}\Zk$}
+ {$\solpair{x=\dfrac12\arcsin(2-\sqrt3)+k\pi}
+ {x=\dfrac{\pi}{2}-\dfrac12\arcsin(2-\sqrt3)+k\pi}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{6}+k\pi}{x=\dfrac{5\pi}{12}+k\pi}\Zk$}
+ {$x\in\varnothing$}
+
+\item \tdm{TDM22} Tất cả các nghiệm của phương trình
+ $\tan x+\cot x=2$ là
+ \twochoices
+ {$x=\dfrac{\pi}{4}+k\pi\Zk$}
+ {$x=-\dfrac{\pi}{4}+k\pi\Zk$}
+ {$x=\dfrac{\pi}{3}+k\pi\Zk$}
+ {$x=\dfrac{\pi}{4}+2k\pi\Zk$}
+
+\item \tdm{TDM22} Tất cả các nghiệm của phương trình
+ $\tan x-2\cot x=1$ là
+ \twochoices
+ {$\solpair{x=\dfrac{\pi}{4}+k\pi}{x=-\arctan 2+k\pi}\Zk$}
+ {$\solpair{x=-\dfrac{\pi}{4}+k\pi}{x=\arctan 2+k\pi}\Zk$}
+ {$\solpair{x=-\dfrac{\pi}{4}+2k\pi}{x=\arctan 2+2k\pi}\Zk$}
+ {$x=-\dfrac{\pi}{4}+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\tan^2 x-\cos 2x=4$ là
+ \twochoices
+ {$x=\pm\arctan\sqrt{2+\sqrt3}+k\pi\Zk$}
+ {$x=\pm\arctan\sqrt6+k\pi\Zk$}
+ {$x=\pm\arctan 2+k\pi\Zk$}
+ {$x=\pm\arctan\sqrt{1+\sqrt6}+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\sin 2x-2\tan x=1$ là
+ \twochoices
+ {$x=\dfrac{\pi}{4}+k\pi\Zk$}
+ {$x=-\arctan 2+k\pi\Zk$}
+ {$x=-\dfrac{\pi}{4}+k\pi\Zk$}
+ {$x=\arctan 2+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\tan\left(x+\dfrac{\pi}{4}\right)-\cot 2x=-\dfrac94$ là
+ \densechoices
+ {$\solpair{x=\dfrac{\pi}{4}+k\pi}{x=\pm\arctan 7+k\pi}\Zk$}
+ {$\solpair{x=-\arctan 2+k\pi}{x=\arctan\dfrac{-4\pm\sqrt{17}}{2}+k\pi}\Zk$}
+ {$\solpair{x=\arctan 2+k\pi}{x=\arctan\dfrac{-7\pm\sqrt{57}}4+k\pi}\Zk$}
+ {$x=\pm\dfrac{\pi}{3}+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $2\cos^2 x-2\sin x\cos x+\sin^2 x=2$ là
+ \twochoices
+ {$\solpair{x=k\pi}{x=\arctan(-2)+k\pi}\Zk$}
+ {$\solpair{x=k\pi}{x=\arctan 2+k\pi}\Zk$}
+ {$\solpair{x=k\pi}{x=\arctan\dfrac12+k\pi}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{4}+k\pi}{x=\arctan 3+k\pi}\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\cos^2 x-6\sin x\cos x+4\sin^2 x=4$ là
+ \twochoices
+ {$\solpair{x=\dfrac{\pi}{2}+k\pi}{x=\arctan 2+k\pi}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{2}+k\pi}{x=\arctan\left(-\dfrac12\right)+k\pi}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{2}+2k\pi}{x=\arctan\dfrac12+k\pi}\Zk$}
+ {$\solpair{x=-\dfrac{\pi}{2}+2k\pi}{x=\arctan\left(-\dfrac12\right)+k\pi}\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $(\cos x+\sin x)-4\sin x\cos x-1=0$ là
+ \densechoices
+ {$\soltriple{x=-\dfrac{\pi}{2}+2k\pi}
+ {x=\dfrac{\pi}{4}+2k\pi}
+ {x=\dfrac{\pi}{4}\pm\arccos\left(\dfrac1{2\sqrt2}\right)+2k\pi}\Zk$}
+ {$\soltriple{x=\dfrac{\pi}{2}+2k\pi}
+ {x=2k\pi}
+ {x=\dfrac{\pi}{4}\pm\arccos\left(-\dfrac1{2\sqrt2}\right)+2k\pi}\Zk$}
+ {$\soltriple{x=2k\pi}
+ {x=\dfrac{\pi}{4}+2k\pi}
+ {x=\dfrac{\pi}{4}\pm\arccos(2)+2k\pi}\Zk$}
+ {$\soltriple{x=\pi+2k\pi}
+ {x=\dfrac{\pi}{2}+2k\pi}
+ {x=\dfrac{\pi}{4}\pm\arccos(\sqrt2)+2k\pi}\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $(\cos^3 x+\sin^3 x)-2\sin x\cos x+1=0$ là
+ \twochoices
+ {$\solpair{x=\dfrac{\pi}{2}+2k\pi}{x=-\dfrac{\pi}{4}+2k\pi}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{4}+2k\pi}{x=-\dfrac{\pi}{4}+2k\pi}\Zk$}
+ {$\solpair{x=\pi+2k\pi}{x=-\dfrac{\pi}{2}+2k\pi}\Zk$}
+ {$\solpair{x=2k\pi}{x=\dfrac{\pi}{2}+2k\pi}\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\sqrt2\sin\left(x-\dfrac{\pi}{4}\right)
+ +2(\sin^3 x-\cos^3 x)-3=0$ tương ứng là
+ \densechoices
+ {$\solquad{x=-\dfrac{\pi}{2}+2k\pi}
+ {x=\dfrac{\pi}{4}+2k\pi}
+ {x=\dfrac{\pi}{4}+\arcsin\dfrac{-1+\sqrt{13}}{2\sqrt2}+2k\pi}
+ {x=\dfrac{5\pi}{4}-\arcsin\dfrac{-1+\sqrt{13}}{2\sqrt2}+2k\pi}\Zk$}
+ {$\solquad{x=\dfrac{\pi}{3}+2k\pi}
+ {x=\dfrac{\pi}{2}+2k\pi}
+ {x=\dfrac{\pi}{4}+\arcsin\dfrac{-1+\sqrt{13}}{2}+2k\pi}
+ {x=\dfrac{5\pi}{4}-\arcsin\dfrac{-1+\sqrt{13}}{2}+2k\pi}\Zk$}
+ {$\solquad{x=2k\pi}
+ {x=\dfrac{\pi}{4}+2k\pi}
+ {x=\dfrac{\pi}{4}+\arcsin\dfrac{-1+\sqrt{13}}{2\sqrt2}+2k\pi}
+ {x=\dfrac{\pi}{4}-\arcsin\dfrac{-1+\sqrt{13}}{2\sqrt2}+2k\pi}\Zk$}
+ {$\solquad{x=\dfrac{\pi}{2}+2k\pi}
+ {x=\pi+2k\pi}
+ {x=\dfrac{\pi}{4}+\arcsin\dfrac{-1+\sqrt{13}}{2\sqrt2}+2k\pi}
+ {x=\dfrac{5\pi}{4}-\arcsin\dfrac{-1+\sqrt{13}}{2\sqrt2}+2k\pi}\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $(\tan x+\cot x)+(\tan^2 x+\cot^2 x)=0$ là
+ \twochoices
+ {$x=-\dfrac{\pi}{4}+2k\pi\Zk$}
+ {$x=\dfrac{\pi}{4}+2k\pi\Zk$}
+ {$x=-\dfrac{\pi}{4}+k\pi\Zk$}
+ {$x=\dfrac{\pi}{4}+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\dfrac1{\sin x}+\dfrac1{\cos x}+2\sqrt2=0$ là
+ \twochoices
+ {$\soltriple{x=\dfrac{\pi}{4}+2k\pi}
+ {x=\dfrac{7\pi}{12}+2k\pi}
+ {x=-\dfrac{\pi}{12}+2k\pi}\Zk$}
+ {$\soltriple{x=\dfrac{5\pi}{4}+2k\pi}
+ {x=\dfrac{7\pi}{12}+2k\pi}
+ {x=-\dfrac{\pi}{12}+2k\pi}\Zk$}
+ {$x=-\dfrac{\pi}{4}+2k\pi\Zk$}
+ {$x=\dfrac{5\pi}{4}+2k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\lvert\sin x+\cos x\rvert-2\sin 2x=1$ là
+ \twochoices
+ {$x=\dfrac{\pi}{3}+\dfrac{k\pi}{2}\Zk$}
+ {$x=\dfrac{\pi}{2}+k\pi\Zk$}
+ {$x=\dfrac{\pi}{4}+\dfrac{k\pi}{2}\Zk$}
+ {$x=\dfrac{\pi}{2}+\dfrac{k\pi}{2}\Zk$}
+\end{questions}
+
+\vspace{2mm}
+\textbf{PHẦN B. Các bài tập vận dụng 8+ làm thêm (9 câu).}
+\begin{questions}[resume]
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\cos 3x-4\cos^2 x+4\cos x=0$ là
+ \twochoices
+ {$\solpair{x=\dfrac{\pi}{2}+k\pi}{x=\pm\dfrac{\pi}{3}+2k\pi}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{2}+k\pi}{x=\pm\dfrac{\pi}{6}+2k\pi}\Zk$}
+ {$x=\dfrac{\pi}{2}+\dfrac{k\pi}{2}\Zk$}
+ {$x=\pm\dfrac{\pi}{3}+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\sin 3x-2\cos^2 x-2\sin x+3=0$ là
+ \twochoices
+ {$\solpair{x=\dfrac{\pi}{6}+2k\pi}{x=\dfrac{5\pi}{6}+2k\pi}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{4}+k\pi}{x=\dfrac{3\pi}{4}+2k\pi}\Zk$}
+ {$x=\dfrac{k\pi}{2}\Zk$}
+ {$x=\dfrac{\pi}{2}+2k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\sin^6 x+\cos^6 x-\cos 8x-\dfrac{21}{16}=0$ là
+ \densechoices
+ {$x\in\varnothing$}
+ {$\solpair{x=\pm\dfrac{\pi}{12}+\dfrac{k\pi}{4}}
+ {x=\pm\dfrac14\arccos\left(\dfrac5{16}\right)+\dfrac{k\pi}{3}}\Zk$}
+ {$\solpair{x=\pm\dfrac{\pi}{12}+\dfrac{k\pi}{2}}
+ {x=\pm\dfrac14\arccos\left(-\dfrac5{16}\right)+\dfrac{k\pi}{2}}\Zk$}
+ {$\solpair{x=\pm\dfrac{\pi}{6}+\dfrac{k\pi}{2}}
+ {x=\pm\dfrac12\arccos\left(-\dfrac5{16}\right)+\dfrac{k\pi}{2}}\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\sin\left(2x+\dfrac{\pi}{6}\right)
+ -3\cos\left(x-\dfrac{\pi}{6}\right)+2=0$ là
+ \twochoices
+ {$\solpair{x=\pm\dfrac{\pi}{3}+2k\pi}{x=2k\pi}\Zk$}
+ {$\solpair{x=\pm\dfrac{\pi}{6}+2k\pi}{x=\pm\arccos\dfrac13+2k\pi}\Zk$}
+ {$\solpair{x=\pm\dfrac{\pi}{3}+2k\pi}{x=\pm\dfrac{\pi}{4}+2k\pi}\Zk$}
+ {$\solpair{x=\pm\dfrac{\pi}{6}+2k\pi}{x=\dfrac{\pi}{2}+2k\pi}\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\tan 2x-\cot x=-\dfrac23$ là
+ \twochoices
+ {$\solpair{x=\arctan\dfrac12+k\pi}
+ {t=\arctan(2+\sqrt7)+k\pi}\Zk$}
+ {$\solpair{x=\arctan\dfrac12+k\pi}
+ {t=\arctan 2+k\pi}\Zk$}
+ {$x=\pm\dfrac{\pi}{3}+k\pi\Zk$}
+ {$x=\arctan(2\pm\sqrt3)+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\tan 3x-\sin 2x=0$ là
+ \twochoices
+ {$x=\pm\dfrac{\pi}{4}+k\pi\Zk$}
+ {$\solpair{x=\dfrac{\pi}{4}+k\pi}{t=\arctan 3+k\pi}\Zk$}
+ {$x=\pm\dfrac{\pi}{8}+2k\pi\Zk$}
+ {$\solpair{x=k\pi}{x=\pm\arctan\sqrt{4+\sqrt{17}}+k\pi}\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\cos x+\sin^2 x\cos x+3\sin^3 x=0$ là
+ \twochoices
+ {$x=\dfrac{\pi}{4}+k\pi\Zk$}
+ {$x=1+k\pi\Zk$}
+ {$x=\arctan 2+k\pi\Zk$}
+ {$x=-\dfrac{\pi}{4}+k\pi\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\cos^3 x+\sin 3x-\sin x\cos^2 x=0$ là
+ \densechoices
+ {$\solpair{x=\dfrac{\pi}{4}+k\pi}
+ {x=\arctan\dfrac{1\pm\sqrt5}{2}+k\pi}\Zk$}
+ {$\solpair{x=-\dfrac{\pi}{4}+k\pi}
+ {x=\arctan\dfrac{2\pm\sqrt3}{2}+k\pi}\Zk$}
+ {$\solpair{x=-\dfrac{\pi}{4}+k\pi}
+ {x=\arctan\dfrac{1\pm\sqrt5}{2}+k\pi}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{4}+k\pi}
+ {x=\arctan\dfrac{3\pm\sqrt5}{2}+k\pi}\Zk$}
+
+\item \tdm{TDM32} Tất cả các nghiệm của phương trình
+ $\cos 3x-2\sin^3 x=0$ là
+ \twochoices
+ {$\solpair{x=-\dfrac{\pi}{4}+k\pi}{x=\arctan\dfrac12+k\pi}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{4}+k\pi}{x=\arctan\dfrac12+k\pi}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{3}+k\pi}{x=\arctan 2+k\pi}\Zk$}
+ {$\solpair{x=\dfrac{\pi}{4}+k\pi}{x=\arctan 2+k\pi}\Zk$}
+\end{questions}
+
+\vspace{4mm}
+\begin{center}\textbf{---------- HẾT ----------}\end{center}
+\end{document}
