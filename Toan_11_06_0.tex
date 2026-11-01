@@ -1,0 +1,189 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=16mm,bottom=17mm,left=16mm,right=16mm,headheight=0pt,headsep=0mm,footskip=10mm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+ \usepackage[utf8]{inputenc}
+ \usepackage[T5]{fontenc}
+ \usepackage{mathptmx}
+\else
+ \usepackage{mathptmx}
+ \usepackage{fontspec}
+ \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\IfFontExistsTF{TeXGyreTermes}{\setmainfont{TeXGyreTermes}}{\setmainfont{Latin Modern Roman}}}
+\fi
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor,tikz,enumitem,multicol,fancyhdr,lastpage,tabularx,array}
+\usepackage[most]{tcolorbox}
+% Phong cach Toan_11_05.tex; noi dung chep tu de TDM11X17 (15 cau).
+\definecolor{questionpurple}{RGB}{137,38,143}
+\definecolor{answerblue}{RGB}{35,45,140}
+\definecolor{lightblue}{RGB}{238,245,255}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1.10}
+\setlength{\columnsep}{8mm}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\small Chuyên đề I -- Toán 11}
+\fancyfoot[R]{\small Trang \thepage/\pageref{LastPage} -- Bài 06}
+\renewcommand{\footrulewidth}{.4pt}
+\newtcolorbox{theorybox}{colback=lightblue,colframe=answerblue!60,boxrule=.5pt,
+ arc=1mm,left=2.5mm,right=2.5mm,top=1.5mm,bottom=1.5mm,before skip=3pt,after skip=4pt}
+\newcommand{\sectitle}[2]{\vspace{4pt}\noindent{\large\bfseries\textcolor{questionpurple}{#1.\ #2}}\par\vspace{3pt}}
+% Compact multiple-choice blocks: no blank answer-writing areas from the source PDF.
+\newcommand{\question}[3]{\par\addvspace{5pt}\noindent\textcolor{questionpurple}{\textbf{Câu #1.}}\ \textbf{[#2]}\ #3\par\nobreak\vspace{2pt}}
+\newcommand{\opt}[2]{\textcolor{answerblue}{\bfseries #1.}\,\ensuremath{#2}}
+\newcommand{\choices}[4]{%
+ \begingroup\small\renewcommand{\arraystretch}{1.20}%
+ \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X@{\hspace{3mm}}>{\raggedright\arraybackslash}X@{}}
+ \opt{A}{#1} & \opt{B}{#2}\\
+ \opt{C}{#3} & \opt{D}{#4}
+ \end{tabularx}\endgroup\par}
+\newcommand{\longchoices}[4]{%
+ \begingroup\small\par\vspace{1pt}
+ \noindent\opt{A}{#1}\par\vspace{2pt}
+ \noindent\opt{B}{#2}\par\vspace{2pt}
+ \noindent\opt{C}{#3}\par\vspace{2pt}
+ \noindent\opt{D}{#4}\par
+ \endgroup}
+\begin{document}
+\noindent
+\begin{minipage}[t]{.35\linewidth}
+ \centering{\bfseries CHUYÊN ĐỀ I -- TOÁN -- 11\par}
+ \vspace{2pt}\rule{.73\linewidth}{.4pt}\par\vspace{3pt}
+ CHƯƠNG I\par\vspace{3pt}{\itshape TÀI LIỆU HỌC TẬP -- BÀI 06\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{.62\linewidth}
+ \centering{\bfseries HÀM SỐ LƯỢNG GIÁC\par VÀ PHƯƠNG TRÌNH LƯỢNG GIÁC\par}
+ \vspace{4pt}{\small\bfseries BÀI 06. BẤT PHƯƠNG TRÌNH LƯỢNG GIÁC CƠ BẢN\par VÀ TẬP XÁC ĐỊNH CỦA HÀM SỐ LƯỢNG GIÁC\par}
+\end{minipage}
+\vspace{5mm}
+\noindent\textbf{Họ và tên:}\dotfill\hfill\textbf{Lớp:}\enspace\dotfill
+\vspace{3mm}
+\begin{theorybox}
+\textbf{Đề tự luyện TDM11X17:} Bất phương trình lượng giác cơ bản và tập
+xác định của hàm số lượng giác cơ bản. \textbf{15 câu trắc nghiệm -- 60 phút.}
+Các phương án được giữ theo đề gốc; $k\in\mathbb Z$ xuất hiện trong từng lựa chọn.
+\end{theorybox}
+
+\sectitle{A}{Các bài tập nền tảng và vận dụng trọng điểm}
+
+\question{1}{TDM32}{Tất cả các nghiệm của bất phương trình $\sin x\ge\dfrac12$ là}
+\choices
+ {\dfrac{\pi}{6}+2k\pi\le x\le\dfrac{5\pi}{6}+2k\pi,\ k\in\mathbb Z.}
+ {-\dfrac{\pi}{6}+2k\pi\le x\le\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb Z.}
+ {\dfrac{\pi}{3}+2k\pi\le x\le\dfrac{2\pi}{3}+2k\pi,\ k\in\mathbb Z.}
+ {2k\pi\le x\le\pi+2k\pi,\ k\in\mathbb Z.}
+
+\question{2}{TDM22}{Tất cả các nghiệm của bất phương trình $\sin(2x+3)>2$ là}
+\choices
+ {\varnothing.}
+ {\mathbb R.}
+ {x\ge 2k\pi,\ k\in\mathbb Z.}
+ {x\ge\arcsin 2+2k\pi,\ k\in\mathbb Z.}
+
+\question{3}{TDM32}{Tập xác định của hàm số $y=\sqrt{-2\sin x-\sqrt2}$ là}
+\choices
+ {\dfrac{5\pi}{4}+2k\pi\le x\le\dfrac{7\pi}{4}+2k\pi,\ k\in\mathbb Z.}
+ {-\dfrac{\pi}{4}+2k\pi\le x\le\dfrac{5\pi}{4}+2k\pi,\ k\in\mathbb Z.}
+ {\dfrac{5\pi}{4}+k\pi\le x\le\dfrac{9\pi}{4}+k\pi,\ k\in\mathbb Z.}
+ {\dfrac{\pi}{4}+2k\pi\le x\le\dfrac{3\pi}{4}+2k\pi,\ k\in\mathbb Z.}
+
+\question{4}{TDM32}{Tập xác định của hàm số $y=\sqrt{-1-\sin\left(x-\dfrac{\pi}{3}\right)}$ là}
+\choices
+ {\varnothing.}
+ {x=-\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb Z.}
+ {\mathbb R.}
+ {x=-\dfrac{\pi}{2}+2k\pi,\ k\in\mathbb Z.}
+
+\question{5}{TDM32}{Tập xác định của hàm số $y=\sqrt{2\cos\left(x-\dfrac{\pi}{3}\right)+\sqrt3}$ là}
+\choices
+ {-\dfrac{5\pi}{6}+2k\pi\le x\le\dfrac{11\pi}{6}+2k\pi,\ k\in\mathbb Z.}
+ {-\dfrac{\pi}{2}+2k\pi\le x\le\dfrac{7\pi}{6}+2k\pi,\ k\in\mathbb Z.}
+ {\dfrac{5\pi}{6}+2k\pi\le x\le\dfrac{7\pi}{6}+2k\pi,\ k\in\mathbb Z.}
+ {-\dfrac{5\pi}{6}+2k\pi\le x\le\dfrac{5\pi}{6}+2k\pi,\ k\in\mathbb Z.}
+
+\question{6}{TDM22}{Tập xác định của hàm số $y=\dfrac1{\sqrt{4-\cos(2025x+2029)}}$ là}
+\choices
+ {\mathbb R.}
+ {\varnothing.}
+ {x<\arccos4+2k\pi,\ k\in\mathbb Z.}
+ {x>\arccos4+2k\pi,\ k\in\mathbb Z.}
+
+\question{7}{TDM32}{Tập xác định của hàm số $y=\dfrac1{\sqrt{-1-2\cos x}}$ là}
+\choices
+ {\dfrac{2\pi}{3}+2k\pi<x<\dfrac{4\pi}{3}+2k\pi,\ k\in\mathbb Z.}
+ {\dfrac{2\pi}{3}+2k\pi\le x\le\dfrac{4\pi}{3}+2k\pi,\ k\in\mathbb Z.}
+ {-\dfrac{2\pi}{3}+2k\pi<x<\dfrac{2\pi}{3}+2k\pi,\ k\in\mathbb Z.}
+ {-\dfrac{2\pi}{3}+2k\pi\le x\le\dfrac{2\pi}{3}+2k\pi,\ k\in\mathbb Z.}
+
+\question{8}{TDM32}{Tập xác định của hàm số $y=\sqrt{\cos x-\sqrt3\sin x-2}$ là}
+\choices
+ {x=\pm\dfrac{\pi}{3}+2k\pi,\ k\in\mathbb Z.}
+ {x=-\dfrac{\pi}{3}+2k\pi,\ k\in\mathbb Z.}
+ {-\dfrac{\pi}{3}+2k\pi\le x\le\dfrac{\pi}{3}+2k\pi,\ k\in\mathbb Z.}
+ {\varnothing.}
+
+\question{9}{TDM32}{Tập xác định của hàm số $y=\dfrac1{\sqrt{\tan\left(2x-\dfrac{\pi}{4}\right)-1}}$ là}
+\choices
+ {\dfrac{\pi}{2}+k\pi<x<\dfrac{3\pi}{2}+k\pi,\ k\in\mathbb Z.}
+ {\dfrac{\pi}{2}+k\pi\le x<\dfrac{3\pi}{2}+k\pi,\ k\in\mathbb Z.}
+ {\dfrac{5\pi}{6}+2k\pi\le x\le\dfrac{7\pi}{6}+2k\pi,\ k\in\mathbb Z.}
+ {\dfrac{\pi}{4}+\dfrac{k\pi}{2}<x<\dfrac{3\pi}{8}+\dfrac{k\pi}{2},\ k\in\mathbb Z.}
+
+\question{10}{TDM32}{Tập xác định của hàm số $y=\sqrt{\sqrt3-\tan x}$ là}
+\choices
+ {\dfrac{\pi}{3}+k\pi\le x<\dfrac{\pi}{2}+k\pi,\ k\in\mathbb Z.}
+ {-\dfrac{\pi}{2}+k\pi<x\le\dfrac{\pi}{3}+k\pi,\ k\in\mathbb Z.}
+ {\mathbb R.}
+ {\varnothing.}
+
+\question{11}{TDM32}{Tập xác định của hàm số $y=\sqrt{\cot x+1}$ là}
+\choices
+ {-\dfrac{\pi}{2}+k\pi<x\le\dfrac{\pi}{4}+k\pi,\ k\in\mathbb Z.}
+ {-\dfrac{\pi}{4}+k\pi\le x<\dfrac{\pi}{2}+k\pi,\ k\in\mathbb Z.}
+ {k\pi<x\le\dfrac{3\pi}{4}+k\pi,\ k\in\mathbb Z.}
+ {\dfrac{3\pi}{4}+k\pi\le x<\pi+k\pi,\ k\in\mathbb Z.}
+
+\question{12}{TDM32}{Tập xác định của hàm số $y=\sqrt{-1-\sqrt3\cot x}$ là}
+\choices
+ {\dfrac{2\pi}{3}+k\pi\le x<\pi+k\pi,\ k\in\mathbb Z.}
+ {k\pi<x\le\dfrac{2\pi}{3}+k\pi,\ k\in\mathbb Z.}
+ {\varnothing.}
+ {\dfrac{\pi}{3}+k\pi\le x<\pi+k\pi,\ k\in\mathbb Z.}
+
+\question{13}{TDM32}{Tập xác định của hàm số $y=\sqrt{1-2\sin x}\,\sqrt{1-2\cos x}$ là}
+\choices
+ {-\dfrac{\pi}{3}+2k\pi\le x\le\dfrac{\pi}{6}+2k\pi,\ k\in\mathbb Z.}
+ {\dfrac{\pi}{6}+2k\pi\le x\le\dfrac{\pi}{3}+2k\pi,\ k\in\mathbb Z.}
+ {\dfrac{\pi}{3}+2k\pi\le x\le\dfrac{5\pi}{6}+2k\pi,\ k\in\mathbb Z.}
+ {\dfrac{\pi}{3}+k\pi\le x<\pi+k\pi,\ k\in\mathbb Z.}
+
+% PDF nguon in tu so cau 14 la "sqrt(2 cos + 1)" (khong co bien x).
+% Giu nguyen theo anh chup, khong tu y sua thanh "cos x".
+\question{14}{TDM32}{Tập xác định của hàm số $y=\dfrac{\sqrt{2\cos+1}}{\sqrt{\sqrt3-2\cos x}}$ là}
+\longchoices
+ {\dfrac{\pi}{6}+k\pi<x\le\dfrac{2\pi}{3}+k\pi,\ k\in\mathbb Z.}
+ {\left[-\dfrac{\pi}{6}+2k\pi;\dfrac{\pi}{6}+2k\pi\right)\cup\left(-\dfrac{2\pi}{3}+2k\pi;\dfrac{2\pi}{6}+2k\pi\right],\ k\in\mathbb Z.}
+ {\left(\dfrac{\pi}{6}+2k\pi;\dfrac{2\pi}{3}+2k\pi\right]\cup\left[-\dfrac{2\pi}{3}+2k\pi;-\dfrac{\pi}{6}+2k\pi\right),\ k\in\mathbb Z.}
+ {\left[\dfrac{\pi}{6}+2k\pi;\dfrac{2\pi}{3}+2k\pi\right)\cup\left(-\dfrac{2\pi}{3}+2k\pi;-\dfrac{\pi}{6}+2k\pi\right],\ k\in\mathbb Z.}
+
+\question{15}{TDM32}{Tập xác định của hàm số $y=\sqrt{2\sin x-1}\,\sqrt{1-\tan x}$ là}
+\longchoices
+ {\left[\dfrac{\pi}{4}+2k\pi;\dfrac{\pi}{2}+2k\pi\right],\ k\in\mathbb Z.}
+ {\left[\dfrac{\pi}{4}+2k\pi;\dfrac{\pi}{2}+2k\pi\right)\cup\left(\dfrac{\pi}{2}+2k\pi;\dfrac{5\pi}{6}+2k\pi\right],\ k\in\mathbb Z.}
+ {\left[\dfrac{\pi}{4}+k\pi;\dfrac{5\pi}{6}+2k\pi\right],\ k\in\mathbb Z.}
+ {\left[\dfrac{\pi}{6}+2k\pi;\dfrac{\pi}{4}+2k\pi\right]\cup\left(\dfrac{\pi}{2}+2k\pi;\dfrac{5\pi}{6}+2k\pi\right],\ k\in\mathbb Z.}
+
+\vspace{2mm}
+\begin{center}\bfseries\textcolor{answerblue}{--------- Hết ---------}\end{center}
+\begin{tcolorbox}[colback=white,colframe=black!35,boxrule=.4pt,arc=0mm,
+ left=2mm,right=2mm,top=1mm,bottom=1mm]
+\footnotesize
+\textbf{Nguồn nội dung:} TƯ DUY MỞ, \emph{Đề tự luyện TDM11X17: Bất phương trình
+lượng giác cơ bản và tập xác định của hàm số lượng giác cơ bản},
+biên soạn Nguyễn Đăng Ái (PDF gốc 3 trang, 15 câu).
+Giữ nguyên nội dung câu hỏi và phương án của bản chụp;
+định dạng lại theo \texttt{Toan\_11\_05.tex}, lược bỏ khoảng trống và không kèm lời giải.
+\end{tcolorbox}
+\end{document}
