@@ -1,0 +1,185 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=16mm,bottom=17mm,left=16mm,right=16mm,headheight=0pt,headsep=0mm,footskip=10mm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+ \usepackage[utf8]{inputenc}
+ \usepackage[T5]{fontenc}
+ \usepackage{mathptmx}
+\else
+ \usepackage{mathptmx}
+ \usepackage{fontspec}
+ \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\IfFontExistsTF{TeXGyreTermes}{\setmainfont{TeXGyreTermes}}{\setmainfont{Latin Modern Roman}}}
+\fi
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor,tikz,enumitem,multicol,fancyhdr,lastpage}
+\usepackage[most]{tcolorbox}
+% Giu phong cach, mau sac va bo cuc cua Toan_11_05.tex.
+\definecolor{questionpurple}{RGB}{137,38,143}
+\definecolor{answerblue}{RGB}{35,45,140}
+\definecolor{lightblue}{RGB}{238,245,255}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1.10}
+\setlength{\columnsep}{8mm}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\small Chuyên đề I -- Toán 11}
+\fancyfoot[R]{\small Trang \thepage/\pageref{LastPage} -- Bài 06}
+\renewcommand{\footrulewidth}{.4pt}
+\setlist[itemize]{leftmargin=6mm,label=\textcolor{answerblue}{\textbullet},itemsep=2pt,topsep=3pt,parsep=0pt}
+\setlist[enumerate]{leftmargin=8mm,itemsep=4pt,topsep=3pt,parsep=0pt}
+\newtcolorbox{theorybox}{colback=lightblue,colframe=answerblue!60,boxrule=.5pt,
+ arc=1mm,left=2.5mm,right=2.5mm,top=1.5mm,bottom=1.5mm,before skip=3pt,after skip=4pt}
+\newcommand{\sectitle}[2]{\vspace{4pt}\noindent{\large\bfseries\textcolor{questionpurple}{#1.\ #2}}\par\vspace{3pt}}
+\newcommand{\exampletitle}[2]{\vspace{3pt}\noindent{\bfseries\textcolor{answerblue}{Ví dụ #1.}} #2\par\vspace{2pt}}
+\newcommand{\compactproblems}{\setlist[enumerate,1]{label=\textcolor{questionpurple}{\bfseries\arabic*.},leftmargin=7mm,labelsep=1.5mm,itemsep=3pt,topsep=2pt}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{.35\linewidth}
+ \centering{\bfseries CHUYÊN ĐỀ I -- TOÁN -- 11\par}
+ \vspace{2pt}\rule{.73\linewidth}{.4pt}\par\vspace{3pt}
+ CHƯƠNG I\par\vspace{3pt}{\itshape TÀI LIỆU HỌC TẬP -- BÀI 06\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{.62\linewidth}
+ \centering{\bfseries HÀM SỐ LƯỢNG GIÁC\par VÀ PHƯƠNG TRÌNH LƯỢNG GIÁC\par}
+ \vspace{4pt}{\small\bfseries BÀI 06. PHƯƠNG PHÁP ĐẶT ẨN PHỤ\par TRONG PHƯƠNG TRÌNH LƯỢNG GIÁC\par}
+\end{minipage}
+
+\vspace{5mm}
+\noindent\textbf{Họ và tên:}\dotfill\hfill\textbf{Lớp:}\enspace\dotfill
+\vspace{3mm}
+\begin{theorybox}
+\textbf{Kiến thức trọng tâm:} Đưa phương trình lượng giác về phương trình đại số
+bằng cách đặt $t=\sin x$, $t=\cos x$ hoặc $t=\tan x$; sử dụng các
+công thức biến đổi và điều kiện xác định tương ứng.
+\end{theorybox}
+
+\sectitle{1}{Phương pháp đặt ẩn phụ $\sin x$ và $\cos x$}
+\textbf{Bài toán.} Cho phương trình lượng giác chỉ chứa các biểu thức
+$\sin x$, $\sin^n x$, $\cos^{2p}x$, $\cos^q 2x$.
+Giải phương trình bằng phương pháp đặt ẩn phụ.
+
+\begin{theorybox}
+\textbf{Cách 1.} Đặt $t=\sin x\in[-1;1]$. Khi đó:
+\[
+\begin{aligned}
+\sin^n x&=(\sin x)^n=t^n,\\
+\cos^{2p}x&=(\cos^2x)^p=(1-\sin^2x)^p=(1-t^2)^p,\\
+\cos^q 2x&=(\cos 2x)^q=(1-2\sin^2x)^q=(1-2t^2)^q.
+\end{aligned}
+\]
+Thay các biểu thức trên vào phương trình ban đầu để thu được phương trình
+đại số theo $t$ với điều kiện $-1\le t\le1$.
+\end{theorybox}
+
+Tương tự, nếu phương trình chỉ chứa $\cos x$, $\cos^n x$,
+$\sin^{2p}x$, $\cos^q 2x$, ta dùng cách đặt sau.
+\begin{theorybox}
+\textbf{Cách 2.} Đặt $t=\cos x\in[-1;1]$. Khi đó:
+\[
+\begin{aligned}
+\cos^n x&=(\cos x)^n=t^n,\\
+\sin^{2p}x&=(\sin^2x)^p=(1-\cos^2x)^p=(1-t^2)^p,\\
+\cos^q 2x&=(\cos 2x)^q=(2\cos^2x-1)^q=(2t^2-1)^q.
+\end{aligned}
+\]
+\end{theorybox}
+
+\exampletitle{01 [TDM31]}{Giải phương trình:}
+\[\sin^2x-4\sin x+3=0.\]
+
+\exampletitle{02 [TDM31]}{Giải phương trình:}
+\[\cos2x+\sin x+2=0.\]
+
+\exampletitle{03 [TDM31]}{Giải các phương trình:}
+\begingroup\compactproblems
+\begin{enumerate}
+ \item $\sin x\cos^2x-\cos2x+3\sin x-4=0$.
+ \item $\cos4x-\cos^2x=0$.
+\end{enumerate}
+\endgroup
+
+\sectitle{2}{Phương pháp đặt ẩn phụ $\tan x$ và $\cot x$}
+\textbf{Bài toán.} Cho phương trình lượng giác chỉ chứa các biểu thức
+$\tan x$, $\cot x$, $\sin2x$, $\cos2x$, $\sin^2x$, $\cos^2x$.
+Giải phương trình bằng cách đặt $t=\tan x$.
+
+\textbf{Điều kiện xác định:}
+\begin{itemize}
+ \item Nếu chứa $\tan x$: $\cos x\ne0\iff x\ne\dfrac\pi2+k\pi$.
+ \item Nếu chứa $\cot x$: $\sin x\ne0\iff x\ne k\pi$.
+\end{itemize}
+Trong các công thức, $k\in\mathbb Z$. Nếu phương trình chứa $\cot x$,
+điều kiện trên còn cho $t\ne0$.
+
+\begin{theorybox}
+\textbf{Đặt $t=\tan x$.} Các hệ thức biến đổi:
+\[
+\begin{aligned}
+\cot x&=\frac1{\tan x}=\frac1t,\\[2pt]
+\cos^2x&=\frac1{1+\tan^2x}=\frac1{1+t^2},\\[2pt]
+\sin^2x&=1-\cos^2x=1-\frac1{1+t^2}=\frac{t^2}{1+t^2},\\[2pt]
+\sin2x&=2\sin x\cos x=2\tan x\cos^2x
+       =\frac{2t}{1+t^2},\\[2pt]
+\cos2x&=2\cos^2x-1=\frac2{1+t^2}-1
+       =\frac{1-t^2}{1+t^2}.
+\end{aligned}
+\]
+\end{theorybox}
+
+\begin{theorybox}
+\textbf{Các công thức mở rộng:}
+\[
+\begin{aligned}
+\tan2x&=\frac{2\tan x}{1-\tan^2x}=\frac{2t}{1-t^2},\\[4pt]
+\tan3x&=\tan(2x+x)=\frac{\tan2x+\tan x}{1-\tan2x\tan x}
+        =\frac{3t-t^3}{1-3t^2},\\[4pt]
+\tan(x\pm\alpha)
+        &=\frac{\tan x\pm\tan\alpha}{1\mp\tan x\tan\alpha}.
+\end{aligned}
+\]
+Chẳng hạn:
+\[
+\tan\left(x\pm\frac\pi3\right)
+ =\frac{\tan x\pm\tan\frac\pi3}{1\mp\tan x\tan\frac\pi3}
+ =\frac{t\pm\sqrt3}{1\mp t\sqrt3}.
+\]
+\textit{Lưu ý:} Các đẳng thức dạng phân thức chỉ sử dụng khi những mẫu số
+và các biểu thức lượng giác liên quan xác định.
+\end{theorybox}
+
+Thay các biểu thức vào phương trình đã cho để thu được phương trình đại số
+một ẩn $t$.
+
+\exampletitle{01 [TDM32]}{Giải các phương trình sau:}
+\begingroup\compactproblems
+\begin{enumerate}
+ \item $\tan^2x-4\tan x+3=0$.
+ \item $\cot^2x-3\cot x+2=0$.
+ \item $\tan x-5\cot x=4$.
+\end{enumerate}
+\endgroup
+
+\exampletitle{02 [TDM32]}{Giải các phương trình sau:}
+\begingroup\compactproblems
+\begin{enumerate}
+ \item $2\tan x+6\cos^2x-5=0$.
+ \item $\cot^2x+\cos2x+\dfrac16=0$.
+ \item $\tan x+\sin2x+\tan2x=0$.
+ \item $\tan x+2\tan\!\left(x+\dfrac\pi4\right)=2$.
+\end{enumerate}
+\endgroup
+
+\vspace{3mm}
+\begin{tcolorbox}[colback=white,colframe=black!35,boxrule=.4pt,arc=0mm,
+ left=2mm,right=2mm,top=1mm,bottom=1mm]
+\footnotesize
+\textbf{Nguồn nội dung:} TƯ DUY MỞ, \emph{Vấn đề TDM11X18:
+Phương pháp đặt ẩn phụ trong phương trình lượng giác},
+biên soạn Nguyễn Đăng Ái (PDF được cung cấp, trang 1--4).
+Tài liệu được biên soạn lại bằng LaTeX theo phong cách \texttt{Toan\_11\_05.tex};
+đã bỏ các khoảng trống làm bài trong PDF và không bổ sung lời giải.
+\end{tcolorbox}
+\end{document}
