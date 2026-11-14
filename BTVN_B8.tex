@@ -1,0 +1,179 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[top=16mm,bottom=18mm,left=16mm,right=16mm,headheight=0pt,headsep=0mm,footskip=10mm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T5]{fontenc}
+  \usepackage{mathptmx}
+\else
+  \usepackage{fontspec}
+  \usepackage{mathptmx}
+  \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\IfFontExistsTF{Tinos}{\setmainfont{Tinos}}{\setmainfont{TeX Gyre Termes}}}
+\fi
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor,tikz,graphicx,array,tabularx,enumitem,fancyhdr,lastpage}
+
+% Bo cuc, font, mau so cau va khung khoanh dap an dua tren BTVN_Luong_giac_06.tex.
+% Noi dung: De TDM11X32 -- Hai duong thang song song (16 cau trac nghiem).
+% Khong tao khoang trong de viet loi giai giua cac cau.
+\definecolor{questionpurple}{RGB}{137,38,143}
+\definecolor{answerblue}{RGB}{35,45,140}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1.08}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\small Toán 11 -- Hình học không gian}
+\fancyfoot[R]{\small Trang \thepage/\pageref{LastPage} -- Đề test số 08}
+\renewcommand{\footrulewidth}{.4pt}
+
+\newlist{questions}{enumerate}{1}
+\setlist[questions]{label=\textcolor{questionpurple}{\bfseries Câu \arabic*.},
+ leftmargin=0pt,itemindent=16mm,labelwidth=14mm,labelsep=2mm,align=left,
+ itemsep=0pt,topsep=0pt,parsep=0pt,partopsep=0pt}
+\newcommand{\answerlabel}[1]{\tikz[baseline=(choice.base)]\node[
+ draw=black!65,text=answerblue,circle,inner sep=0pt,minimum size=4.8mm,
+ line width=.4pt,font=\normalsize] (choice) {#1};}
+\newcommand{\fourchoices}[4]{\par\begingroup\small
+ \setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.22}
+ \begin{tabularx}{\linewidth}{@{}*{4}{>{\raggedright\arraybackslash}X}@{}}
+ \answerlabel{A}~#1 & \answerlabel{B}~#2 &
+ \answerlabel{C}~#3 & \answerlabel{D}~#4
+ \end{tabularx}\endgroup}
+\newcommand{\twochoices}[4]{\par\begingroup\small
+ \setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.25}
+ \begin{tabularx}{\linewidth}{@{}*{2}{>{\raggedright\arraybackslash}X}@{}}
+ \answerlabel{A}~#1 & \answerlabel{B}~#2\\
+ \answerlabel{C}~#3 & \answerlabel{D}~#4
+ \end{tabularx}\endgroup}
+\newcommand{\onechoices}[4]{\par\begingroup\small
+ \setlength{\tabcolsep}{1pt}\renewcommand{\arraystretch}{1.15}
+ \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X@{}}
+ \answerlabel{A}~#1\\
+ \answerlabel{B}~#2\\
+ \answerlabel{C}~#3\\
+ \answerlabel{D}~#4
+ \end{tabularx}\endgroup}
+\newcommand{\tdm}[1]{{\small\textcolor{answerblue}{[#1]}}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{.35\textwidth}
+  \centering
+  {\bfseries CHUYÊN ĐỀ -- TOÁN -- 11\par}
+  \vspace{2pt}\rule{.72\linewidth}{.4pt}\par\vspace{3pt}
+  HÌNH HỌC KHÔNG GIAN\par\vspace{4pt}
+  {\itshape ĐỀ TEST SỐ 08\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{.62\textwidth}
+  \centering
+  {\bfseries HAI ĐƯỜNG THẲNG\par
+  SONG SONG\par}
+  \vspace{5pt}
+  {\small\bfseries ĐỀ TỰ LUYỆN TDM11X32\par
+  16 CÂU TRẮC NGHIỆM -- 70 PHÚT\par}
+\end{minipage}
+\vspace{5mm}
+\noindent
+\begin{minipage}[t]{.72\textwidth}
+  \textbf{Họ, tên học sinh:}\dotfill\par
+  \vspace{3pt}
+  \textbf{Lớp:}\dotfill
+\end{minipage}\hfill
+\begin{minipage}[t]{.25\textwidth}
+  \raggedleft\setlength{\fboxsep}{4pt}
+  \fbox{\textbf{Đề test số: 08}}
+\end{minipage}
+
+\vspace{3mm}
+{\footnotesize\itshape Nguồn: Đề TDM11X32 -- Nguyễn Đăng Ái (Tư duy mở).
+Giữ nguyên 16 câu trắc nghiệm; không kèm đáp án, lời giải.\par}
+\vspace{3mm}
+\textbf{PHẦN A. CÁC BÀI TẬP NỀN TẢNG VÀ VẬN DỤNG TRỌNG ĐIỂM (16 CÂU).}
+\begin{questions}
+
+\item \tdm{TDM21} Mệnh đề nào dưới đây \textbf{đúng}?
+  \onechoices
+  {Hai đường thẳng song song là hai đường thẳng không có điểm chung.}
+  {Hai đường thẳng song song là hai đường thẳng cùng thuộc một mặt phẳng.}
+  {Có vô số mặt phẳng chứa cả hai đường thẳng song song.}
+  {Có một và chỉ một mặt phẳng chứa cả hai đường thẳng song song.}
+
+\item \tdm{TDM21} Trong không gian, nếu hai đường thẳng $a$ và $b$ không có điểm chung thì chúng
+  \twochoices
+  {chéo nhau.}
+  {song song với nhau hoặc chéo nhau.}
+  {song song với nhau.}
+  {không đồng phẳng.}
+
+\item \tdm{TDM21} Hỏi có tất cả bao nhiêu cặp đường thẳng chứa các cạnh của tứ diện $ABCD$ chéo nhau?
+  \fourchoices{3.}{2.}{0.}{4.}
+
+\item \tdm{TDM21} Hỏi có tất cả bao nhiêu cặp đường thẳng chứa các cạnh của hình chóp $S.ABCD$ chéo nhau?
+  \fourchoices{4.}{28.}{8.}{12.}
+
+\item \tdm{TDM21} Cho hình chóp ngũ giác $S.ABCDE$. Hỏi có tất cả bao nhiêu cặp đường thẳng chứa các cạnh của hình chóp đã cho và chéo nhau?
+  \fourchoices{15.}{10.}{20.}{8.}
+
+\item \tdm{TDM32} Cho hình chóp $n$-giác. Hỏi có tất cả bao nhiêu cặp đường thẳng chứa các cạnh của hình chóp đã cho và chéo nhau?
+  \fourchoices{$n(n-3)$.}{$\dfrac{n(n-1)}{2}$.}{$n(n-4)$.}{$n(n-2)$.}
+
+\item \tdm{TDM42} Cho một hình chóp lục giác đều. Gọi $X$ là tập chứa tất cả các đường thẳng chứa các cạnh của hình chóp đã cho. Chọn ngẫu nhiên từ $X$ ra hai đường thẳng. Xác suất để chọn được hai đường thẳng chéo nhau là
+  \fourchoices{$\dfrac5{11}$.}{$\dfrac3{11}$.}{$\dfrac4{11}$.}{$\dfrac13$.}
+
+\item \tdm{TDM21} Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành. Giao tuyến của hai mặt phẳng $(SAB)$ và $(SCD)$ là
+  \twochoices
+  {đường thẳng đi qua $S$ và song song với $AD$.}
+  {đường thẳng đi qua $S$ và song song với $CD$.}
+  {đường thẳng đi qua $S$ và song song với $AC$.}
+  {đường thẳng đi qua $S$ và song song với $BC$.}
+
+\item \tdm{TDM31} Cho tứ diện $ABCD$. Gọi $M$ và $N$ lần lượt là trung điểm của $AB$ và $AC$. Mặt phẳng $(\alpha)$ đi qua $M$ và $N$, $(\alpha)$ cắt $DB$ và $DC$ lần lượt tại $Q$ và $P$. Nhận xét \textbf{đúng} là
+  \onechoices
+  {Tứ giác $MNPQ$ là hình thang có hai cạnh đáy là $MQ$ và $NP$.}
+  {Hai đường thẳng $MP$ và $NQ$ song song với nhau.}
+  {Hai đường thẳng $MN$ và $PQ$ song song với nhau.}
+  {Hai đường thẳng $PQ$ và $AD$ đồng phẳng.}
+
+\item \tdm{TDM3} Cho tứ diện $ABCD$. Gọi $M$ là trung điểm của $AB$ và $N$ là điểm nằm trên cạnh $AC$ sao cho $NA=2NC$. Mặt phẳng $(\alpha)$ đi qua $M$ và $N$, $(\alpha)$ cắt $DB$ và $DC$ lần lượt tại $Q$ và $P$. Nhận xét \textbf{đúng} là
+  \onechoices
+  {Tứ giác $MNPQ$ là hình thang có hai cạnh đáy là $MN$ và $PQ$.}
+  {Hai đường thẳng $MP$ và $NQ$ song song với nhau.}
+  {Hai đường thẳng $MN$ và $PQ$ song song với nhau.}
+  {Ba đường thẳng $MN$, $BC$, $PQ$ đồng quy.}
+
+\item \tdm{TDM42} Cho tứ diện $ABCD$ có $AD=12$ và $BC=9$. Gọi $M$ và $N$ lần lượt là hai điểm nằm trên cạnh $AB$ và $AC$ sao cho $AM=2MB$, $AN=2NC$. Mặt phẳng $(\alpha)$ đi qua $M$ và $N$, $(\alpha)$ cắt $DB$ và $DC$ lần lượt tại $Q$ và $P$. Biết tứ giác $MNPQ$ là hình bình hành. Chu vi của $MNPQ$ bằng
+  \fourchoices{12.}{24.}{18.}{20.}
+
+\item \tdm{TDM31} Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình thang với hai cạnh đáy là $AB$ và $CD$. Gọi $M$ và $N$ lần lượt là trung điểm của $SA$ và $SB$, $P$ là điểm nằm trên cạnh $SC$. Gọi $Q$ là giao điểm của cạnh $SD$ với mặt phẳng $(MNP)$. Nhận xét \textbf{đúng} là
+  \twochoices
+  {$PQ$ và $SA$ đồng phẳng.}
+  {$MQ$ và $BC$ song song với nhau.}
+  {$PQ$ và $AB$ song song với nhau.}
+  {$PQ$ song song với $CD$.}
+
+\item \tdm{TDM32} Cho tứ diện $ABCD$. Gọi $M,N,P,Q,R,S$ lần lượt là trung điểm của các cạnh $AB,CD,AC,BD,AD,BC$. Nhận xét \textbf{đúng} là
+  \onechoices
+  {$MN$, $PQ$, $RS$ đồng quy tại trung điểm của chúng.}
+  {$MN$, $PQ$, $RS$ đôi một song song với nhau.}
+  {$MN$, $PQ$, $RS$ có độ dài bằng nhau.}
+  {$MN$, $PQ$, $RS$ đồng phẳng.}
+
+\item \tdm{TDM42} Cho tứ diện $ABCD$. Gọi $M$ và $N$ lần lượt là trung điểm của $AB$ và $CD$. Gọi $G$ là trung điểm của $MN$. Gọi $A'$ là giao điểm của $AG$ với mặt phẳng $(BCD)$. Đáp án \textbf{sai} là
+  \twochoices
+  {$\dfrac{AG}{AA'}=\dfrac34$.}
+  {$\dfrac{GA}{GA'}=3$.}
+  {$\overrightarrow{A'B}+\overrightarrow{A'C}+\overrightarrow{A'D}=\vec 0$.}
+  {$\dfrac{GA'}{GA}=\dfrac14$.}
+
+\item \tdm{TDM41} Cho tứ diện $ABCD$. Gọi $A'$ và $B'$ lần lượt là trọng tâm của các tam giác $BCD$ và $ACD$. Gọi $G$ là giao điểm của $AA'$ và $BB'$. Tỉ số $\dfrac{GB'}{GB}$ bằng
+  \fourchoices{$\dfrac14$.}{$\dfrac13$.}{$\dfrac34$.}{$\dfrac25$.}
+
+\item \tdm{TDM51} Cho tứ diện đều $ABCD$ có cạnh bằng $6$. Gọi $M$ và $N$ lần lượt là trung điểm của $AB$ và $CD$. Gọi $I$ và $J$ lần lượt là hai điểm nằm trên $AC$ và $DM$ sao cho $IJ$ song song với $BN$. Độ dài đoạn thẳng $IJ$ bằng
+  \fourchoices{$2\sqrt3$.}{$3\sqrt2$.}{$3$.}{$2\sqrt2$.}
+
+\end{questions}
+\vspace{2mm}
+\begin{center}\textbf{---------- HẾT ----------}\end{center}
+\end{document}
