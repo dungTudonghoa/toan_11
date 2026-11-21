@@ -1,0 +1,187 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[top=16mm,bottom=18mm,left=16mm,right=16mm,headheight=0pt,headsep=0mm,footskip=10mm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T5]{fontenc}
+  \usepackage{mathptmx}
+\else
+  \usepackage{fontspec}
+  \usepackage{mathptmx}
+  \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\IfFontExistsTF{Tinos}{\setmainfont{Tinos}}{\setmainfont{TeX Gyre Termes}}}
+\fi
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor,tikz,graphicx,array,tabularx,enumitem,fancyhdr,lastpage}
+
+% Bo cuc, font, mau so cau va khung khoanh dap an dua tren BTVN_Luong_giac_06.tex.
+% Noi dung: De TDM11X33 -- Duong thang va mat phang song song (13 cau trac nghiem).
+% Khong tao khoang trong de viet loi giai giua cac cau.
+\definecolor{questionpurple}{RGB}{137,38,143}
+\definecolor{answerblue}{RGB}{35,45,140}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1.08}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\small Toán 11 -- Hình học không gian}
+\fancyfoot[R]{\small Trang \thepage/\pageref{LastPage} -- Đề test số 08.1}
+\renewcommand{\footrulewidth}{.4pt}
+
+\newlist{questions}{enumerate}{1}
+\setlist[questions]{label=\textcolor{questionpurple}{\bfseries Câu \arabic*.},
+ leftmargin=0pt,itemindent=16mm,labelwidth=14mm,labelsep=2mm,align=left,
+ itemsep=0pt,topsep=0pt,parsep=0pt,partopsep=0pt}
+\newcommand{\answerlabel}[1]{\tikz[baseline=(choice.base)]\node[
+ draw=black!65,text=answerblue,circle,inner sep=0pt,minimum size=4.8mm,
+ line width=.4pt,font=\normalsize] (choice) {#1};}
+\newcommand{\fourchoices}[4]{\par\begingroup\small
+ \setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.22}
+ \begin{tabularx}{\linewidth}{@{}*{4}{>{\raggedright\arraybackslash}X}@{}}
+ \answerlabel{A}~#1 & \answerlabel{B}~#2 &
+ \answerlabel{C}~#3 & \answerlabel{D}~#4
+ \end{tabularx}\endgroup}
+\newcommand{\twochoices}[4]{\par\begingroup\small
+ \setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.25}
+ \begin{tabularx}{\linewidth}{@{}*{2}{>{\raggedright\arraybackslash}X}@{}}
+ \answerlabel{A}~#1 & \answerlabel{B}~#2\\
+ \answerlabel{C}~#3 & \answerlabel{D}~#4
+ \end{tabularx}\endgroup}
+\newcommand{\onechoices}[4]{\par\begingroup\small
+ \setlength{\tabcolsep}{1pt}\renewcommand{\arraystretch}{1.15}
+ \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X@{}}
+ \answerlabel{A}~#1\\
+ \answerlabel{B}~#2\\
+ \answerlabel{C}~#3\\
+ \answerlabel{D}~#4
+ \end{tabularx}\endgroup}
+\newcommand{\tdm}[1]{{\small\textcolor{answerblue}{[#1]}}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{.35\textwidth}
+  \centering
+  {\bfseries CHUYÊN ĐỀ -- TOÁN -- 11\par}
+  \vspace{2pt}\rule{.72\linewidth}{.4pt}\par\vspace{3pt}
+  HÌNH HỌC KHÔNG GIAN\par\vspace{4pt}
+  {\itshape ĐỀ TEST SỐ 08.1\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{.62\textwidth}
+  \centering
+  {\bfseries ĐƯỜNG THẲNG VÀ MẶT PHẲNG\par
+  SONG SONG\par}
+  \vspace{5pt}
+  {\small\bfseries ĐỀ TỰ LUYỆN TDM11X33\par
+  13 CÂU TRẮC NGHIỆM -- 75 PHÚT\par}
+\end{minipage}
+\vspace{4mm}
+\noindent
+\begin{minipage}[t]{.72\textwidth}
+  \textbf{Họ, tên học sinh:}\dotfill\par
+  \vspace{3pt}
+  \textbf{Lớp:}\dotfill
+\end{minipage}\hfill
+\begin{minipage}[t]{.25\textwidth}
+  \raggedleft\setlength{\fboxsep}{4pt}
+  \fbox{\textbf{Đề test số: 08.1}}
+\end{minipage}
+
+\vspace{3mm}
+\textbf{PHẦN A. CÁC BÀI TẬP NỀN TẢNG VÀ VẬN DỤNG TRỌNG ĐIỂM (13 CÂU).}
+\begin{questions}
+\item \tdm{TDM21} Mệnh đề \textbf{đúng} là
+\onechoices
+  {Đường thẳng và mặt phẳng song song với nhau nếu chúng không cắt nhau.}
+  {Nếu hai đường thẳng cùng song song với một mặt phẳng thì chúng song song với nhau.}
+  {Nếu hai đường thẳng cùng song song với một mặt phẳng thì chúng cắt nhau.}
+  {Nếu đường thẳng $d$ không song song và không cắt mặt phẳng $(\alpha)$ thì $d$ nằm trong $(\alpha)$.}
+
+\item \tdm{TDM21} Cho hai mặt phẳng $(\alpha)$, $(\beta)$ và hai đường thẳng $a,b$. Đáp án \textbf{sai} là
+\onechoices
+  {Nếu $a$ và $(\alpha)$ có hai điểm chung trở lên thì $(\alpha)$ chứa $a$.}
+  {Nếu $b\subset(\alpha)$, $a\parallel b$ thì $a\parallel(\alpha)$.}
+  {Nếu $a\parallel(\alpha)$, $a\subset(\beta)$, $(\alpha)\cap(\beta)=b$ thì $a\parallel b$.}
+  {Nếu $(\alpha)\cap(\beta)=b$, $a\parallel(\alpha)$, $a\parallel(\beta)$ thì $a\parallel b$.}
+
+\item \tdm{TDM22} Cho hai đường thẳng $a,b$. Đáp án \textbf{sai} là
+\onechoices
+  {Nếu $a$ và $b$ cắt nhau thì qua $a$ không tồn tại mặt phẳng nào song song với $b$.}
+  {Nếu $a$ và $b$ trùng nhau thì qua $a$ không tồn tại mặt phẳng nào song song với $b$.}
+  {Nếu $a$ và $b$ chéo nhau thì qua $a$ tồn tại vô số mặt phẳng song song với $b$.}
+  {Nếu $a$ và $b$ song song với nhau thì qua $a$ tồn tại vô số mặt phẳng song song với $b$.}
+
+\item \tdm{TDM21} Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành. Đáp án \textbf{sai} là:
+\fourchoices
+  {$AB\parallel(SCD)$.}
+  {$AC\parallel(SBD)$.}
+  {$AD\parallel(SBC)$.}
+  {$CD\parallel(SAB)$.}
+
+\item \tdm{TDM21} Cho tứ diện $ABCD$. Gọi $M$ là điểm nằm trên cạnh $AB$ của tứ diện $ABCD$. Mặt phẳng $(\alpha)$ đi qua $M$ và song song với $BD$. Gọi $N=AD\cap(\alpha)$. Đáp án \textbf{đúng} là
+\fourchoices
+  {$MN\parallel BD$.}
+  {$MN\parallel CD$.}
+  {$MN\parallel BC$.}
+  {$MN\parallel AC$.}
+
+\item \tdm{TDM32} Cho tứ diện $ABCD$. Gọi $M$ là trung điểm của cạnh $AB$ và $N$ là một điểm thuộc cạnh $CD$ không trùng với $C$ và $D$. Mặt phẳng $(\alpha)$ đi qua $MN$ và song song với $BC$. Gọi $P$ và $Q$ lần lượt là giao của $AC$ và $BD$ với $(\alpha)$. Biết rằng tứ giác $MPNQ$ là hình bình hành. Tỉ số $\dfrac{NC}{ND}$ bằng
+\fourchoices
+  {$\dfrac23$.}
+  {$2$.}
+  {$1$.}
+  {$\dfrac12$.}
+
+\item \tdm{TDM32} Cho hai hình bình hành $ABCD$ và $ABEF$ không cùng nằm trong một mặt phẳng. Gọi $P,Q$ lần lượt là trọng tâm của hai tam giác $ABF$ và $ABC$. Hỏi $PQ$ song song với mặt phẳng nào cho ở dưới đây?
+\fourchoices
+  {$(ACF)$.}
+  {$(ACE)$.}
+  {$(ABC)$.}
+  {$(BCE)$.}
+
+\item \tdm{TDM32} Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành. Gọi $M$ và $N$ lần lượt là trọng tâm của hai tam giác $ABC$ và $SAB$. Hỏi $MN$ song song với mặt phẳng nào cho ở dưới đây?
+\fourchoices
+  {$(SBD)$.}
+  {$(SAC)$.}
+  {$(SCD)$.}
+  {$(SAD)$.}
+
+\item \tdm{TDM42} Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành, có $SD=AB=6$. Gọi $M$ là trung điểm của cạnh $SA$. Mặt phẳng $(\alpha)$ đi qua $M$ song song với hai cạnh $AB$ và $SD$. Gọi $N,P,Q$ lần lượt là giao điểm của $AD,BC,SB$ với $(\alpha)$. Biết chu vi của tứ giác $MNPQ$ bằng $17$. Khi đó chu vi của tam giác $SCD$ bằng
+\fourchoices
+  {$20$.}
+  {$24$.}
+  {$18$.}
+  {$22$.}
+
+\item \tdm{TDM41} Cho tứ diện $ABCD$ có $AB+CD=10$. Gọi $M$ là trung điểm của $AB$. Mặt phẳng $(\alpha)$ đi qua $M$ song song với hai cạnh $AD$ và $BC$. Biết rằng $AC,CD,DB$ cắt $(\alpha)$ lần lượt tại $N,P,Q$. Chu vi của tứ giác $MNPQ$ bằng
+\fourchoices
+  {$15$.}
+  {$12$.}
+  {$10$.}
+  {$20$.}
+
+\item \tdm{TDM42} Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình bình hành. Gọi $M$ là trung điểm của cạnh $SC$. Mặt phẳng $(\alpha)$ qua $A$ và $M$ cắt các cạnh $SB$ và $SD$ lần lượt tại $B'$ và $D'$. Giá trị của biểu thức
+$T=\dfrac{SB}{SB'}+\dfrac{SD}{SD'}$ bằng
+\fourchoices
+  {$2$.}
+  {$4$.}
+  {$3$.}
+  {$\dfrac83$.}
+
+\item \tdm{TDM52} Cho tứ diện $ABCD$. Gọi $G$ là trọng tâm của tứ diện và $M$ là một điểm nằm trên cạnh $BC$ sao cho $MB=2MC$. Mặt phẳng $(\alpha)$ đi qua $G$ và $M$ đồng thời song song với cạnh $AD$. Biết giao của đường thẳng $BD$ và $(\alpha)$ là $I$. Tỉ số $\dfrac{IB}{ID}$ bằng
+\fourchoices
+  {$3$.}
+  {$4$.}
+  {$\dfrac43$.}
+  {$\dfrac72$.}
+
+\item \tdm{TDM42} Cho hình chóp tứ giác $S.ABCD$ có đáy $ABCD$ là hình bình hành. Gọi $M$ là trung điểm của cạnh $SC$. Mặt phẳng $(\alpha)$ đi qua $AM$ và song song với $BD$. Gọi $P$ là giao điểm của cạnh $SB$ với mặt phẳng $(\alpha)$. Tỉ số $\dfrac{SP}{SB}$ bằng
+\fourchoices
+  {$\dfrac23$.}
+  {$\dfrac13$.}
+  {$\dfrac34$.}
+  {$\dfrac12$.}
+
+\end{questions}
+\vspace{2mm}
+\begin{center}\textbf{---------- HẾT ----------}\end{center}
+\end{document}
